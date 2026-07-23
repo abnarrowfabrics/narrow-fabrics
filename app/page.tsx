@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { id: "story", label: "Our Story" },
@@ -65,9 +66,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-10">
           <div className="flex flex-shrink-0 items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-md border-2 border-[#1E3A8A] font-[family-name:var(--font-heading)] text-[15px] font-extrabold tracking-wide text-[#1E3A8A]">
-              AB
-            </div>
+            <Image src="/logo.jpg" alt="AB Narrow Fabrics" width={40} height={40} className="h-10 w-10 rounded-md object-contain" />
             <div className="font-[family-name:var(--font-heading)] text-[19px] font-bold tracking-wide">
               AB NARROW FABRICS
             </div>
@@ -295,9 +294,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-12 border-b border-white/12 pb-14">
           <div>
             <div className="mb-4.5 flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md border-2 border-white font-[family-name:var(--font-heading)] text-[15px] font-extrabold text-white">
-                AB
-              </div>
+              <Image src="/logo.jpg" alt="AB Narrow Fabrics" width={40} height={40} className="h-10 w-10 rounded-md bg-white object-contain p-0.5" />
               <div className="font-[family-name:var(--font-heading)] text-[18px] font-bold text-white">
                 AB NARROW FABRICS
               </div>
