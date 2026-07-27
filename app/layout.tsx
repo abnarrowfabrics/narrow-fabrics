@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     "India's fastest growing narrow fabric lanyard manufacturer — precision-woven lanyards, belts and narrow fabric trims, fully customizable for corporate, education and industrial buyers.",
 };
 
+import WhatsAppButton from "./components/WhatsAppButton";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,6 +31,7 @@ export default function RootLayout({
     <html lang="en" className={`${barlowCondensed.variable} ${workSans.variable}`}>
       <body className="bg-white font-[family-name:var(--font-body)] text-[#0B0B0C] antialiased">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
