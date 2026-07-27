@@ -1,5 +1,7 @@
+import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { sectors } from "./data/sectors";
 
 const stats = [
   { value: "10+", label: "Years of Manufacturing Experience" },
@@ -9,28 +11,36 @@ const stats = [
 
 const products = [
   {
-    name: "School Belts",
+    name: "Lanyard",
     useCase:
-      "Woven uniform belts built for daily school wear — reinforced stitching and long-lasting color.",
-    tags: ["20mm / 25mm / 32mm", "Woven polyester", "Custom buckle"],
-    swatches: ["#1E3A8A", "#0B0B0C", "#8C1D1D", "#D4A62B"],
+      "Precision-woven lanyards for staff, students and visitor badges — smooth tubular or flat finish, available across a range of sizes with breakaway safety option.",
+    tags: ["10mm", "12mm", "15mm", "20mm", "25mm"],
+    swatches: ["#1E3A8A", "#0B0B0C", "#4B5563", "#FFFFFF"],
+  },
+];
+
+const whyChooseUs = [
+  {
+    title: "10+ Years of Experience",
+    description: "Over a decade of narrow fabric weaving, refined batch after batch.",
   },
   {
-    name: "Icard Threads",
-    useCase:
-      "ID card lanyards for staff, students and visitor badges — smooth tubular finish, breakaway safety option.",
-    tags: ["Tubular / flat", "Nylon-poly blend", "Swivel or clip"],
-    swatches: ["#1E3A8A", "#0B0B0C", "#4B5563", "#FFFFFF"],
+    title: "500+ Clients Nationwide",
+    description: "Trusted by corporate, education and industrial buyers across India.",
+  },
+  {
+    title: "100% Custom Design",
+    description: "Every width, material, color and attachment made to your spec.",
+  },
+  {
+    title: "Rigorous Quality Control",
+    description: "Every order inspected and measured before it ships.",
   },
 ];
 
 const placeholderStyle = {
   backgroundImage:
     "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
-};
-
-const darkPlaceholderStyle = {
-  backgroundColor: "#111827",
 };
 
 export default function Home() {
@@ -101,68 +111,196 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ABOUT */}
+      <section
+        id="about"
+        className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10"
+      >
+        <div>
+          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
+            About Us
+          </div>
+          <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
+            Built on the loom, driven by craftsmanship
+          </h2>
+          <p className="mb-4.5 text-[16px] leading-[1.75] text-gray-600">
+            AB Narrow Fabrics began as a small weaving unit with a single goal: make narrow
+            fabric that lasts. What started with a handful of looms has grown into a full-scale
+            manufacturing operation serving clients across the country.
+          </p>
+          <Link
+            href="/about"
+            className="text-[15px] font-semibold text-[#1E3A8A] hover:text-[#152a63]"
+          >
+            Learn more about us →
+          </Link>
+        </div>
+        <div
+          style={placeholderStyle}
+          className="flex aspect-[4/3] w-full items-center justify-center rounded-[10px] border border-black/8 p-5 text-center font-mono text-xs text-gray-500"
+        >
+          [ IMAGE PLACEHOLDER — founder / production floor ]
+        </div>
+      </section>
+
       {/* PRODUCTS */}
-      <section id="products" className="scroll-mt-20 bg-[#F7F8FA] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+      <section id="products" className="scroll-mt-20 bg-[#F7F8FA] px-5 py-[clamp(50px,7vw,90px)] sm:px-10">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto mb-14 max-w-xl text-center">
+          <div className="mb-10 text-center">
             <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
               Products
             </div>
             <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
               Manufactured to spec, finished to last
             </h2>
-            <p className="text-[16px] leading-relaxed text-gray-600">
-              Two core lines, fully customizable in width, material and attachment.
-            </p>
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(420px,1fr))] gap-8">
-            {products.map((product) => (
+          {products.map((product) => (
+            <div
+              key={product.name}
+              className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-10 rounded-xl border border-gray-200 bg-white p-8"
+            >
               <div
-                key={product.name}
-                className="overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
+                style={placeholderStyle}
+                className="flex aspect-[4/3] w-full items-center justify-center rounded-lg p-5 text-center font-mono text-xs text-gray-500"
               >
-                <div
-                  style={placeholderStyle}
-                  className="flex aspect-video items-center justify-center p-5 text-center font-mono text-xs text-gray-500"
-                >
-                  [ PRODUCT PHOTO — {product.name} ]
+                [ PRODUCT PHOTO — {product.name} ]
+              </div>
+              <div>
+                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-2xl font-bold">
+                  {product.name}
+                </h3>
+                <p className="mb-4 text-[15px] leading-relaxed text-gray-600">{product.useCase}</p>
+                <div className="mb-5 flex flex-wrap gap-2">
+                  {product.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-[#EEF1F7] px-3 py-1.5 text-[12.5px] font-semibold text-[#1E3A8A]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <div className="p-7 pb-[30px]">
-                  <h3 className="mb-2 font-[family-name:var(--font-heading)] text-2xl font-bold">
-                    {product.name}
-                  </h3>
-                  <p className="mb-4 text-[15px] leading-relaxed text-gray-600">
-                    {product.useCase}
-                  </p>
-                  <div className="mb-5 flex flex-wrap gap-2">
-                    {product.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-[#EEF1F7] px-3 py-1.5 text-[12.5px] font-semibold text-[#1E3A8A]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mb-[22px] flex gap-2.5">
-                    {product.swatches.map((swatch) => (
-                      <div
-                        key={swatch}
-                        style={{ backgroundColor: swatch }}
-                        className="h-7 w-7 rounded-md border border-black/12"
-                      />
-                    ))}
-                  </div>
-                  <div
-                    style={darkPlaceholderStyle}
-                    className="flex aspect-video items-center justify-center rounded-lg p-4 text-center font-mono text-[11.5px] text-[#8B93A3]"
-                  >
-                    [ PRODUCT VIDEO PLACEHOLDER — {product.name} in production ]
-                  </div>
+                <div className="flex gap-2.5">
+                  {product.swatches.map((swatch) => (
+                    <div
+                      key={swatch}
+                      style={{ backgroundColor: swatch }}
+                      className="h-7 w-7 rounded-md border border-black/12"
+                    />
+                  ))}
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="mx-auto max-w-6xl scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+        <div className="mx-auto mb-14 max-w-xl text-center">
+          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
+            Why Choose Us
+          </div>
+          <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
+            Why Choose AB Narrow Fabrics
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8">
+          {whyChooseUs.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
+            >
+              <h3 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
+                {item.title}
+              </h3>
+              <p className="text-[15px] leading-relaxed text-gray-600">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* TAGLINE BANNER */}
+      <section className="relative overflow-hidden bg-[#0B0B0C] px-5 py-[clamp(70px,10vw,120px)] text-center sm:px-10">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(135deg,#111827,#111827 14px,#1a2333 14px,#1a2333 28px)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0C]/55 via-[#0B0B0C]/72 to-[#0B0B0C]/92" />
+        <div className="relative mx-auto max-w-3xl">
+          <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(28px,4vw,48px)] leading-[1.1] font-extrabold text-white">
+            India&apos;s Fastest Growing Narrow Fabric Lanyard Manufacturer
+          </h2>
+          <p className="text-[16px] leading-relaxed text-gray-300">
+            From a single weaving unit to a nationwide supplier — built on precision, durability
+            and a relentless focus on quality, order after order.
+          </p>
+        </div>
+      </section>
+
+      {/* MARKET SECTOR OVERVIEW */}
+      <section id="market-sector" className="scroll-mt-20 bg-[#F7F8FA] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto mb-14 max-w-xl text-center">
+            <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
+              Market Sector
+            </div>
+            <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
+              Sectors we serve
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8">
+            {sectors.slice(0, 4).map((sector) => (
+              <div
+                key={sector.name}
+                className="rounded-xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
+              >
+                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
+                  {sector.name}
+                </h3>
+                <p className="text-[15px] leading-relaxed text-gray-600">{sector.description}</p>
+              </div>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/market-sector"
+              className="text-[15px] font-semibold text-[#1E3A8A] hover:text-[#152a63]"
+            >
+              View all sectors →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* LOCATION */}
+      <section className="scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto mb-14 max-w-xl text-center">
+            <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
+              Find Us
+            </div>
+            <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
+              Samaypur, Badli, Delhi 110042
+            </h2>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-gray-200">
+            <iframe
+              src="https://www.google.com/maps?q=28.7495,77.1315&output=embed"
+              width="100%"
+              height="420"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="AB Narrow Fabrics location — Samaypur, Badli, Delhi 110042"
+            />
           </div>
         </div>
       </section>
