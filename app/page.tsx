@@ -1,13 +1,5 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
-import Image from "next/image";
-
-const navLinks = [
-  { id: "story", label: "Our Story" },
-  { id: "products", label: "Products" },
-  { id: "contact", label: "Contact" },
-];
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const stats = [
   { value: "10+", label: "Years of Manufacturing Experience" },
@@ -32,13 +24,6 @@ const products = [
   },
 ];
 
-const socialLinks = [
-  { label: "IG", href: "https://instagram.com" },
-  { label: "WA", href: "https://wa.me/910000000000" },
-  { label: "Tel", href: "tel:+910000000000" },
-  { label: "@", href: "mailto:info@abnarrowfabrics.example" },
-];
-
 const placeholderStyle = {
   backgroundImage:
     "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
@@ -49,80 +34,9 @@ const darkPlaceholderStyle = {
 };
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  const closeMenu = () => setMenuOpen(false);
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <div className="overflow-x-clip">
-      {/* NAV */}
-      <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-10">
-          <div className="flex flex-shrink-0 items-center gap-2.5">
-            <Image src="/logo.jpg" alt="AB Narrow Fabrics" width={40} height={40} className="h-10 w-10 rounded-md object-contain" />
-            <div className="font-[family-name:var(--font-heading)] text-[19px] font-bold tracking-wide">
-              AB NARROW FABRICS
-            </div>
-          </div>
-
-          <nav className="hidden items-center gap-7 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                className="whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-[#1E3A8A]"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              className="whitespace-nowrap rounded-sm bg-[#1E3A8A] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#152a63]"
-            >
-              Get a Quote
-            </a>
-          </nav>
-
-          <button
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Menu"
-            className="flex h-10 w-10 flex-shrink-0 flex-col items-center justify-center gap-1 rounded-md border border-gray-200 md:hidden"
-          >
-            <span className="h-0.5 w-5 bg-[#0B0B0C]" />
-            <span className="h-0.5 w-5 bg-[#0B0B0C]" />
-            <span className="h-0.5 w-5 bg-[#0B0B0C]" />
-          </button>
-        </div>
-
-        {menuOpen && (
-          <div className="flex flex-col gap-1 border-t border-gray-200 bg-white px-5 pt-3 pb-5 md:hidden">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={closeMenu}
-                className="border-b border-gray-100 py-2.5 text-[16px] font-medium text-gray-700"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={closeMenu}
-              className="mt-2.5 rounded-sm bg-[#1E3A8A] px-5 py-3 text-center text-[15px] font-semibold text-white"
-            >
-              Get a Quote
-            </a>
-          </div>
-        )}
-      </header>
+      <Header />
 
       {/* HERO */}
       <section
@@ -184,42 +98,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* BRAND STORY */}
-      <section
-        id="story"
-        className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10"
-      >
-        <div>
-          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
-            Our Story
-          </div>
-          <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-            Built on the loom, driven by craftsmanship
-          </h2>
-          <p className="mb-4.5 text-[16px] leading-[1.75] text-gray-600">
-            AB Narrow Fabrics began as a small weaving unit with a single goal: make narrow
-            fabric that lasts. What started with a handful of looms and a founder who insisted
-            on checking every metre of output by hand has grown into a full-scale manufacturing
-            operation serving clients across the country.
-          </p>
-          <p className="mb-4.5 text-[16px] leading-[1.75] text-gray-600">
-            Today, we manufacture woven and tubular lanyards, ID card threads, school belts and
-            narrow fabric trims — engineered for daily wear, tested for durability, and produced
-            at a scale that keeps lead times short without cutting corners on quality.
-          </p>
-          <p className="text-[16px] leading-[1.75] text-gray-600">
-            Every order is still finished the way the founder intended: inspected, measured and
-            packed with the same care as the first batch we ever shipped.
-          </p>
-        </div>
-        <div
-          style={placeholderStyle}
-          className="flex aspect-[4/3] w-full items-center justify-center rounded-[10px] border border-black/8 p-5 text-center font-mono text-xs text-gray-500"
-        >
-          [ IMAGE PLACEHOLDER — founder / production floor ]
         </div>
       </section>
 
@@ -289,113 +167,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer id="contact" className="scroll-mt-20 bg-[#0B0B0C] px-5 pt-[clamp(60px,8vw,90px)] pb-8 sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-12 border-b border-white/12 pb-14">
-          <div>
-            <div className="mb-4.5 flex items-center gap-2.5">
-              <Image src="/logo.jpg" alt="AB Narrow Fabrics" width={40} height={40} className="h-10 w-10 rounded-md bg-white object-contain p-0.5" />
-              <div className="font-[family-name:var(--font-heading)] text-[18px] font-bold text-white">
-                AB NARROW FABRICS
-              </div>
-            </div>
-            <p className="mb-5.5 max-w-[280px] text-sm leading-relaxed text-gray-400">
-              India&apos;s fastest growing narrow fabric lanyard manufacturer — precision,
-              durability, custom made.
-            </p>
-            <div className="flex gap-2.5">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-white/8 text-[11px] font-bold text-white hover:bg-[#1E3A8A]"
-                >
-                  {social.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <div className="mb-4.5 text-sm font-bold tracking-wide text-white uppercase">
-              Quick Links
-            </div>
-            <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href={`#${link.id}`}
-                  className="text-sm text-gray-400 hover:text-white"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <div className="mb-4.5 text-sm font-bold tracking-wide text-white uppercase">
-              Contact
-            </div>
-            <div className="text-sm leading-[1.8] text-gray-400">
-              <div>Plot No. 00, Industrial Estate,</div>
-              <div>Placeholder City, India – 000000</div>
-              <div className="mt-2.5">+91 00000 00000</div>
-              <div>info@abnarrowfabrics.example</div>
-            </div>
-          </div>
-
-          <div>
-            <div className="mb-4.5 text-sm font-bold tracking-wide text-white uppercase">
-              Get in touch
-            </div>
-            {submitted ? (
-              <div className="text-sm leading-relaxed text-[#93A9E0]">
-                Thanks — we&apos;ll be in touch shortly.
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData((s) => ({ ...s, name: e.target.value }))}
-                  className="rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-sm text-white placeholder:text-gray-400"
-                />
-                <input
-                  type="email"
-                  placeholder="Email address"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData((s) => ({ ...s, email: e.target.value }))}
-                  className="rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-sm text-white placeholder:text-gray-400"
-                />
-                <textarea
-                  placeholder="Tell us what you need"
-                  rows={3}
-                  value={formData.message}
-                  onChange={(e) => setFormData((s) => ({ ...s, message: e.target.value }))}
-                  className="resize-y rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-sm text-white placeholder:text-gray-400"
-                />
-                <button
-                  type="submit"
-                  className="mt-1 rounded-md bg-[#1E3A8A] py-3 text-[14.5px] font-semibold text-white hover:bg-[#2F55B5]"
-                >
-                  Send Message
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-
-        <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-3 pt-6 text-[13px] text-gray-500">
-          <div>© 2026 AB Narrow Fabrics. All rights reserved.</div>
-          <div>Designed and manufactured in India.</div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
