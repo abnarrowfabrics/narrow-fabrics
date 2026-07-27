@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./Header";
 
+const WHATSAPP_NUMBER = "918527911209";
+
 const socialLinks = [
   { label: "IG", href: "https://instagram.com" },
-  { label: "WA", href: "https://wa.me/910000000000" },
+  { label: "WA", href: `https://wa.me/${WHATSAPP_NUMBER}` },
   { label: "Tel", href: "tel:+910000000000" },
   { label: "@", href: "mailto:info@abnarrowfabrics.example" },
 ];
@@ -19,6 +21,13 @@ export default function Footer() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    const text = `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`;
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
