@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     "The sectors AB Narrow Fabrics supplies — medical, promotional, PPE, FIBC, cargo, queue management, rubber, luggage, garment and pet accessories.",
 };
 
+const placeholderStyle = {
+  backgroundImage:
+    "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
+};
+
 export default function MarketSector() {
   return (
     <div className="overflow-x-clip">
@@ -28,13 +33,21 @@ export default function MarketSector() {
           {sectors.map((sector) => (
             <div
               key={sector.name}
-              className="rounded-xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
+              className="overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
             >
-              <h2 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
-                {sector.name}
-              </h2>
-              <p className="mb-4 text-[15px] leading-relaxed text-gray-600">{sector.description}</p>
-              <span className="text-sm font-semibold text-[#1E3A8A]">Read More →</span>
+              <div
+                style={placeholderStyle}
+                className="flex aspect-video items-center justify-center p-5 text-center font-mono text-xs text-gray-500"
+              >
+                [ IMAGE PLACEHOLDER — {sector.name} ]
+              </div>
+              <div className="p-7">
+                <h2 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
+                  {sector.name}
+                </h2>
+                <p className="mb-4 text-[15px] leading-relaxed text-gray-600">{sector.description}</p>
+                <span className="text-sm font-semibold text-[#1E3A8A]">Read More →</span>
+              </div>
             </div>
           ))}
         </div>
