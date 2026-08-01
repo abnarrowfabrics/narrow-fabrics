@@ -311,7 +311,7 @@ export default function Home() {
           </div>
           <div className="overflow-hidden rounded-xl border border-gray-200">
             <iframe
-              src="https://www.google.com/maps?q=28.7495,77.1315&output=embed"
+              src="https://www.google.com/maps?q=28.748667,77.146556&output=embed"
               width="100%"
               height="420"
               style={{ border: 0 }}
