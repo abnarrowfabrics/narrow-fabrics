@@ -118,13 +118,13 @@ export default function Home() {
         id="about"
         className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10"
       >
-        <div>
-          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
+        <div className="lg:pr-8">
+          <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(40px,5vw,64px)] leading-[1.1] font-extrabold text-[#1E3A8A]">
             About Us
-          </div>
-          <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-            Built on the loom, driven by craftsmanship
           </h2>
+          <div className="mb-6 text-[22px] font-bold text-gray-900">
+            Built on the loom, driven by craftsmanship
+          </div>
           <p className="mb-4.5 text-[16px] leading-[1.75] text-gray-600">
             AB Narrow Fabrics began as a small weaving unit with a single goal: make narrow
             fabric that lasts. What started with a handful of looms has grown into a full-scale
