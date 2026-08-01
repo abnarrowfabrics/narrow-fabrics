@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import IndiaMap from "./components/IndiaMap";
+import ProductsCarousel from "./components/ProductsCarousel";
 import { sectors } from "./data/sectors";
 
 const stats = [
@@ -145,56 +146,8 @@ export default function Home() {
       </section>
 
       {/* PRODUCTS */}
-      <section id="products" className="scroll-mt-20 bg-[#F7F8FA] px-5 py-[clamp(50px,7vw,90px)] sm:px-10">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-10 text-center">
-            <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
-              Products
-            </div>
-            <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-              Manufactured to spec, finished to last
-            </h2>
-          </div>
-
-          {products.map((product) => (
-            <div
-              key={product.name}
-              className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-10 rounded-xl border border-gray-200 bg-white p-8"
-            >
-              <div
-                style={placeholderStyle}
-                className="flex aspect-[4/3] w-full items-center justify-center rounded-lg p-5 text-center font-mono text-xs text-gray-500"
-              >
-                [ PRODUCT PHOTO — {product.name} ]
-              </div>
-              <div>
-                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-2xl font-bold">
-                  {product.name}
-                </h3>
-                <p className="mb-4 text-[15px] leading-relaxed text-gray-600">{product.useCase}</p>
-                <div className="mb-5 flex flex-wrap gap-2">
-                  {product.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-[#EEF1F7] px-3 py-1.5 text-[12.5px] font-semibold text-[#1E3A8A]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-2.5">
-                  {product.swatches.map((swatch) => (
-                    <div
-                      key={swatch}
-                      style={{ backgroundColor: swatch }}
-                      className="h-7 w-7 rounded-md border border-black/12"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <section id="products" className="scroll-mt-20">
+        <ProductsCarousel />
       </section>
 
       {/* WHY CHOOSE US */}
