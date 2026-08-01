@@ -8,7 +8,7 @@ const cities: {
   anchor: "start" | "middle" | "end";
 }[] = [
     { name: "Punjab", x: 78.3, y: 82.3, label: { x: 68, y: 75 }, anchor: "end" },
-    { name: "Gujarat", x: 34.1, y: 181.2, label: { x: 30, y: 170 }, anchor: "end" },
+    { name: "Gujarat", x: 34.1, y: 181.2, label: { x: 15, y: 170 }, anchor: "end" },
     { name: "Maharashtra", x: 75.2, y: 217.4, label: { x: 70, y: 210 }, anchor: "end" },
     { name: "Karnataka", x: 85.5, y: 265.6, label: { x: 75, y: 260 }, anchor: "end" },
     { name: "Tamil Nadu", x: 111.1, y: 297.3, label: { x: 111.1, y: 313 }, anchor: "middle" },
@@ -30,7 +30,7 @@ export default function IndiaMap() {
     <div className="relative overflow-hidden p-6 sm:p-10 w-full bg-transparent">
 
       <div className="relative flex flex-col items-center justify-center">
-        <svg viewBox="-25 -15 350 400" className="w-full max-w-[700px] origin-center lg:scale-110">
+        <svg viewBox="-70 -15 395 400" className="w-full max-w-[700px] origin-center lg:scale-[1.3]">
           <style>
             {`
               @keyframes dashFlow {
@@ -69,7 +69,10 @@ export default function IndiaMap() {
                 opacity={0.7}
                 style={{
                   strokeDasharray: "6 8",
-                  animation: "dashFlow 2s linear infinite",
+                  animationName: "dashFlow",
+                  animationDuration: "6s",
+                  animationTimingFunction: "linear",
+                  animationIterationCount: "infinite",
                   animationDelay: `${i * 0.15}s`,
                 }}
               />
@@ -83,7 +86,7 @@ export default function IndiaMap() {
                 x={city.label.x}
                 y={city.label.y}
                 fontSize={13}
-                fontWeight={700}
+                fontWeight={500}
                 letterSpacing={0.2}
                 fill="#0f172a"
                 textAnchor={city.anchor}
@@ -109,7 +112,7 @@ export default function IndiaMap() {
             fill="#0f172a"
             textAnchor="start"
           >
-            Delhi (HQ)
+            Delhi
           </text>
         </svg>
       </div>
