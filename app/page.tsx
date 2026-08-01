@@ -245,15 +245,15 @@ export default function Home() {
       </section>
 
       {/* PAN INDIA DELIVERY */}
-      <section className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
-        <div>
-          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
+      <section className="mx-auto grid max-w-[1400px] scroll-mt-20 grid-cols-1 lg:grid-cols-2 items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+        <div className="lg:pr-12">
+          <div className="mb-4 text-base font-bold tracking-[2px] text-[#1E3A8A] uppercase">
             Pan India Delivery
           </div>
-          <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
+          <h2 className="mb-6 font-[family-name:var(--font-heading)] text-[clamp(40px,5vw,64px)] leading-[1.1] font-extrabold text-gray-900">
             Shipped from Delhi to every corner of India
           </h2>
-          <p className="text-[16px] leading-[1.75] text-gray-600">
+          <p className="text-[19px] leading-[1.8] text-gray-600">
             From our Delhi manufacturing base, we dispatch orders nationwide — reaching Punjab,
             Bihar, Gujarat, Karnataka and every state in between with reliable, tracked delivery.
           </p>
