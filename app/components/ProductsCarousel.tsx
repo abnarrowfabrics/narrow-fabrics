@@ -32,12 +32,6 @@ const baseProducts = [
     tags: ["5mm", "10mm", "15mm"],
     swatches: ["#91B5CE", "#1E3A8A", "#FFFFFF"],
   },
-  {
-    name: "Satin Ribbons",
-    useCase: "Smooth and glossy satin ribbons perfect for premium gifting, apparel, and decoration.",
-    tags: ["10mm", "25mm", "50mm"],
-    swatches: ["#ECA985", "#DF8B8F", "#1E3A8A", "#FFFFFF"],
-  },
 ];
 
 // Duplicate the array many times to create a practically infinite scrolling list
