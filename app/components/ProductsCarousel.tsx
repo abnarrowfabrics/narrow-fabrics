@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const baseProducts = [
   {
@@ -48,8 +48,12 @@ const placeholderStyle = {
     "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
 };
 
+type Product = (typeof baseProducts)[number];
+
 export default function ProductsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState<Product | null>(null);
+  const [width, setWidth] = useState<string>("");
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -128,12 +132,17 @@ export default function ProductsCarousel() {
             className="carousel-card grid w-[85vw] max-w-[800px] shrink-0 snap-center grid-cols-[repeat(auto-fit,minmax(280px,1fr))] items-center gap-10 rounded-xl border border-gray-200 bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:w-[80vw]"
           >
             {/* Image Placeholder */}
-            <div
+            <button
+              type="button"
+              onClick={() => {
+                setActive(product);
+                setWidth(product.tags[0]);
+              }}
               style={placeholderStyle}
-              className="flex aspect-[4/3] w-full items-center justify-center rounded-lg p-5 text-center font-mono text-xs text-gray-500"
+              className="flex aspect-[4/3] w-full cursor-pointer items-center justify-center rounded-lg p-5 text-center font-mono text-xs text-gray-500 transition hover:brightness-95"
             >
               [ PRODUCT PHOTO — {product.name} ]
-            </div>
+            </button>
             
             {/* Content */}
             <div>
@@ -166,6 +175,64 @@ export default function ProductsCarousel() {
           </div>
         ))}
       </div>
+
+      {/* Width preview modal */}
+      {active && (
+        <div
+          onClick={() => setActive(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-5"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-lg rounded-xl bg-white p-8 shadow-2xl"
+          >
+            <button
+              type="button"
+              onClick={() => setActive(null)}
+              aria-label="Close"
+              className="absolute right-4 top-4 text-2xl leading-none text-gray-400 hover:text-gray-700"
+            >
+              ×
+            </button>
+
+            <h3 className="mb-1 font-[family-name:var(--font-heading)] text-2xl font-bold text-gray-900">
+              {active.name}
+            </h3>
+            <p className="mb-6 text-sm text-gray-500">Selected width: {width}</p>
+
+            {/* Strap rendered at the selected width, to scale */}
+            <div
+              style={placeholderStyle}
+              className="mb-6 flex h-64 items-center justify-center overflow-hidden rounded-lg"
+            >
+              <div
+                style={{
+                  width: `${parseInt(width) * 4}px`,
+                  backgroundColor: active.swatches[0],
+                }}
+                className="h-52 rounded-md border border-black/12 shadow-md transition-all duration-300"
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {active.tags.map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => setWidth(tag)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                    tag === width
+                      ? "bg-[#1E3A8A] text-white"
+                      : "bg-[#EEF1F7] text-[#1E3A8A] hover:bg-[#dde3f0]"
+                  }`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
