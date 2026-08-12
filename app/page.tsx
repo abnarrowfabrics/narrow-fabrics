@@ -58,12 +58,13 @@ export default function Home() {
         id="home"
         className="relative flex min-h-[min(92vh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(135deg,#111827,#111827 14px,#1a2333 14px,#1a2333 28px)",
-          }}
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/bgvideo-herosection.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0C]/55 via-[#0B0B0C]/72 to-[#0B0B0C]/92" />
 
