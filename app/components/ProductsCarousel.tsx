@@ -21,10 +21,16 @@ const baseProducts = [
     swatches: ["#9BCAA0", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
   },
   {
-    name: "Corrugated Roll",
-    useCase: "Strong corrugated fabric rolls for industrial, packaging, and heavy-duty utility applications.",
-    tags: ["20mm", "40mm", "50mm"],
-    swatches: ["#C4BF6D", "#4B5563", "#0B0B0C"],
+    name: "School Belts",
+    useCase: "Finished school belts with buckle, built for daily uniform wear and long-lasting durability.",
+    tags: ["25mm", "30mm", "35mm"],
+    swatches: ["#9BCAA0", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
+  },
+  {
+    name: "Exhibitions",
+    useCase: "Custom webbings and lanyards for exhibitions, events and trade shows — branded and quick-turnaround.",
+    tags: ["15mm", "20mm", "25mm"],
+    swatches: ["#91B5CE", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
   },
 ];
 
