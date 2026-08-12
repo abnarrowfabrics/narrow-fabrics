@@ -19,6 +19,7 @@ const directors = [
     role: "Director",
     qualification: "B.Tech in Textile Engineering, [University Name]",
     description: "[Placeholder bio] Himanshu Mittal co-founded AB Narrow Fabrics with a focus on manufacturing quality and production excellence, overseeing the weaving units and day-to-day operations that keep every order on time.",
+    photo: "/himanshu.jpg",
   },
   {
     name: "Anoop Mishra",
@@ -81,10 +82,18 @@ export default function About() {
               key={person.name}
               className="rounded-xl border border-gray-200 bg-white p-10 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
             >
-              <div
-                style={placeholderStyle}
-                className="mx-auto mb-6 h-36 w-36 rounded-full border border-black/8"
-              />
+              {person.photo ? (
+                <img
+                  src={person.photo}
+                  alt={person.name}
+                  className="mx-auto mb-6 h-36 w-36 rounded-full border border-black/8 object-cover"
+                />
+              ) : (
+                <div
+                  style={placeholderStyle}
+                  className="mx-auto mb-6 h-36 w-36 rounded-full border border-black/8"
+                />
+              )}
               <h3 className="mb-1.5 font-[family-name:var(--font-heading)] text-2xl font-bold">
                 {person.name}
               </h3>
