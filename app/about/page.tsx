@@ -57,12 +57,11 @@ export default function About() {
             packed with the same care as the first batch we ever shipped.
           </p>
         </div>
-        <div
-          style={placeholderStyle}
-          className="flex aspect-[4/3] w-full items-center justify-center rounded-[10px] border border-black/8 p-5 text-center font-mono text-xs text-gray-500"
-        >
-          [ IMAGE PLACEHOLDER — founder / production floor ]
-        </div>
+        <img
+          src="/built-by-loom-image.png"
+          alt="AB Narrow Fabrics weaving loom"
+          className="aspect-[4/3] w-full rounded-[10px] border border-black/8 object-cover"
+        />
       </section>
 
       {/* BOARD OF DIRECTORS */}
