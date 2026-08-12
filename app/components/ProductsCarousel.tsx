@@ -7,12 +7,14 @@ const baseProducts = [
     useCase: "Precision-woven raw lanyard rolls for bulk manufacturing and custom printing — smooth tubular or flat finish.",
     tags: ["12mm", "16mm", "20mm", "25mm"],
     swatches: ["#ECA985", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
+    image: "/lanyards.jpeg",
   },
   {
     name: "Neck Lanyard",
     useCase: "Finished neck lanyards for staff, students, and visitor badges, available with breakaway safety options.",
     tags: ["16mm", "20mm", "25mm"],
     swatches: ["#DF8B8F", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
+    image: "/lanyards.jpeg",
   },
   {
     name: "School Belt Roll",
@@ -48,7 +50,7 @@ const placeholderStyle = {
     "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
 };
 
-type Product = (typeof baseProducts)[number];
+type Product = (typeof baseProducts)[number] & { image?: string };
 
 export default function ProductsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -138,10 +140,18 @@ export default function ProductsCarousel() {
                 setActive(product);
                 setWidth(product.tags[0]);
               }}
-              style={placeholderStyle}
-              className="flex aspect-[4/3] w-full cursor-pointer items-center justify-center rounded-lg p-5 text-center font-mono text-xs text-gray-500 transition hover:brightness-95"
+              style={product.image ? undefined : placeholderStyle}
+              className="flex aspect-[4/3] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg p-5 text-center font-mono text-xs text-gray-500 transition hover:brightness-95"
             >
-              [ PRODUCT PHOTO — {product.name} ]
+              {product.image ? (
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-full w-full rounded-lg object-cover"
+                />
+              ) : (
+                `[ PRODUCT PHOTO — ${product.name} ]`
+              )}
             </button>
             
             {/* Content */}
@@ -200,18 +210,26 @@ export default function ProductsCarousel() {
             </h3>
             <p className="mb-6 text-sm text-gray-500">Selected width: {width}</p>
 
-            {/* Strap rendered at the selected width, to scale */}
+            {/* Preview at the selected width */}
             <div
-              style={placeholderStyle}
+              style={active.image ? undefined : placeholderStyle}
               className="mb-6 flex h-64 items-center justify-center overflow-hidden rounded-lg"
             >
-              <div
-                style={{
-                  width: `${parseInt(width) * 4}px`,
-                  backgroundColor: active.swatches[0],
-                }}
-                className="h-52 rounded-md border border-black/12 shadow-md transition-all duration-300"
-              />
+              {active.image ? (
+                <img
+                  src={active.image}
+                  alt={active.name}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <div
+                  style={{
+                    width: `${parseInt(width) * 4}px`,
+                    backgroundColor: active.swatches[0],
+                  }}
+                  className="h-52 rounded-md border border-black/12 shadow-md transition-all duration-300"
+                />
+              )}
             </div>
 
             <div className="flex flex-wrap gap-2">
