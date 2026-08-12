@@ -3,11 +3,12 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import IndiaMap from "./components/IndiaMap";
 import ProductsCarousel from "./components/ProductsCarousel";
+import HashScroll from "./components/HashScroll";
 import { sectors } from "./data/sectors";
 
 const stats = [
   { value: "10+", label: "Years of Manufacturing Experience" },
-  { value: "500+", label: "Clients Served Nationwide" },
+  { value: "200+", label: "Clients Served Nationwide" },
   { value: "100%", label: "Custom Design Capability" },
   { value: "20+", label: "Skilled Employees" },
 ];
@@ -28,7 +29,7 @@ const whyChooseUs = [
     description: "Over a decade of narrow fabric weaving, refined batch after batch.",
   },
   {
-    title: "500+ Clients Nationwide",
+    title: "200+ Clients Nationwide",
     description: "Trusted by corporate, education and industrial buyers across India.",
   },
   {
@@ -49,6 +50,7 @@ const placeholderStyle = {
 export default function Home() {
   return (
     <div className="overflow-x-clip">
+      <HashScroll />
       <Header />
 
       {/* HERO */}

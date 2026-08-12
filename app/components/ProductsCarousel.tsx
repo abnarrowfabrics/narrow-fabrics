@@ -26,12 +26,6 @@ const baseProducts = [
     tags: ["20mm", "40mm", "50mm"],
     swatches: ["#C4BF6D", "#4B5563", "#0B0B0C"],
   },
-  {
-    name: "Border Tape",
-    useCase: "Premium border tapes for garment finishing, home textiles, and precise craft applications.",
-    tags: ["5mm", "10mm", "15mm"],
-    swatches: ["#91B5CE", "#1E3A8A", "#FFFFFF"],
-  },
 ];
 
 // Duplicate the array many times to create a practically infinite scrolling list
