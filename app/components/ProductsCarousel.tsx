@@ -5,7 +5,7 @@ const baseProducts = [
   {
     name: "Lanyard Roll",
     useCase: "Precision-woven raw lanyard rolls for bulk manufacturing and custom printing — smooth tubular or flat finish.",
-    tags: ["10mm", "12mm", "15mm", "20mm", "25mm"],
+    tags: ["12mm", "16mm", "20mm", "25mm"],
     swatches: ["#ECA985", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
   },
   {
