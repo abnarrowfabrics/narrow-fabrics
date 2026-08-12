@@ -32,6 +32,12 @@ const baseProducts = [
     tags: ["15mm", "20mm", "25mm"],
     swatches: ["#91B5CE", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
   },
+  {
+    name: "Keychain",
+    useCase: "Woven keychain straps with metal fittings for branding, gifting and everyday carry.",
+    tags: ["16mm", "20mm", "25mm"],
+    swatches: ["#E0B15C", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
+  },
 ];
 
 // Duplicate the array many times to create a practically infinite scrolling list
