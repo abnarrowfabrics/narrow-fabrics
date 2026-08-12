@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import PlayableVideo from "../components/PlayableVideo";
 
 export const metadata: Metadata = {
   title: "Product Customisation — AB Narrow Fabrics",
   description:
     "AB Narrow Fabrics offers customized and bespoke lanyard and narrow fabric solutions, developed in partnership with customers to meet exacting requirements.",
-};
-
-const placeholderStyle = {
-  backgroundImage:
-    "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
 };
 
 export default function ProductCustomisation() {
@@ -60,12 +56,11 @@ export default function ProductCustomisation() {
               solutions to meet specific requirements.
             </p>
           </div>
-          <div
-            style={placeholderStyle}
-            className="flex aspect-[4/3] w-full items-center justify-center rounded-[10px] border border-black/8 p-5 text-center font-mono text-xs text-gray-500"
-          >
-            [ IMAGE PLACEHOLDER — narrow fabric manufacturing ]
-          </div>
+          <img
+            src="/built-by-loom-image.png"
+            alt="AB Narrow Fabrics narrow fabric manufacturing"
+            className="aspect-[4/3] w-full rounded-[10px] border border-black/8 object-cover"
+          />
         </div>
       </section>
 
@@ -94,12 +89,7 @@ export default function ProductCustomisation() {
               project are agreed.
             </p>
           </div>
-          <div
-            style={placeholderStyle}
-            className="flex aspect-[4/3] w-full items-center justify-center rounded-[10px] border border-black/8 p-5 text-center font-mono text-xs text-gray-500 md:order-1"
-          >
-            [ IMAGE PLACEHOLDER — product development ]
-          </div>
+          <PlayableVideo src="/video.mp4" className="aspect-[4/3] w-full md:order-1" />
         </div>
       </section>
 
