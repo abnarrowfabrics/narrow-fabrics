@@ -42,11 +42,6 @@ const whyChooseUs = [
   },
 ];
 
-const placeholderStyle = {
-  backgroundImage:
-    "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
-};
-
 export default function Home() {
   return (
     <div className="overflow-x-clip">
@@ -141,12 +136,11 @@ export default function Home() {
             Learn more about us →
           </Link>
         </div>
-        <div
-          style={placeholderStyle}
-          className="flex aspect-[4/3] w-full items-center justify-center rounded-[10px] border border-black/8 p-5 text-center font-mono text-xs text-gray-500"
-        >
-          [ IMAGE PLACEHOLDER — founder / production floor ]
-        </div>
+        <img
+          src="/about-us-home.png"
+          alt="AB Narrow Fabrics production floor"
+          className="aspect-[4/3] w-full rounded-[10px] border border-black/8 object-cover"
+        />
       </section>
 
       {/* PRODUCTS */}
