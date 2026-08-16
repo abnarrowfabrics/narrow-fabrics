@@ -7,14 +7,14 @@ const baseProducts = [
     useCase: "Precision-woven raw lanyard rolls for bulk manufacturing and custom printing — smooth tubular or flat finish.",
     tags: ["12mm", "16mm", "20mm", "25mm"],
     swatches: ["#ECA985", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
-    image: "/lanyards.jpeg",
+    image: "/lanyards.png",
   },
   {
     name: "Neck Lanyard",
     useCase: "Finished neck lanyards for staff, students, and visitor badges, available with breakaway safety options.",
     tags: ["16mm", "20mm", "25mm"],
     swatches: ["#DF8B8F", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
-    image: "/lanyards.jpeg",
+    image: "/lanyards.png",
   },
   {
     name: "School Belt Roll",
