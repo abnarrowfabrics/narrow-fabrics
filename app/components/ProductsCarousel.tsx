@@ -29,12 +29,6 @@ const baseProducts = [
     swatches: ["#9BCAA0", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
   },
   {
-    name: "Exhibitions",
-    useCase: "Custom webbings and lanyards for exhibitions, events and trade shows — branded and quick-turnaround.",
-    tags: ["15mm", "20mm", "25mm"],
-    swatches: ["#91B5CE", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
-  },
-  {
     name: "Keychain",
     useCase: "Woven keychain straps with metal fittings for branding, gifting and everyday carry.",
     tags: ["16mm", "20mm", "25mm"],

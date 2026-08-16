@@ -11,4 +11,8 @@ export const sectors = [
     name: "School",
     description: "Durable school belts and ID card lanyards built for daily uniform wear.",
   },
+  {
+    name: "Exhibitions",
+    description: "Custom webbings and lanyards for exhibitions, events and trade shows — branded and quick-turnaround.",
+  },
 ];
