@@ -19,13 +19,13 @@ const baseProducts = [
   {
     name: "School Belt Roll",
     useCase: "Durable, high-strength belt rolls designed specifically for school uniforms and extended daily wear.",
-    tags: ["25mm", "30mm", "35mm"],
+    tags: ["35mm", "38mm"],
     swatches: ["#9BCAA0", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
   },
   {
     name: "School Belts",
     useCase: "Finished school belts with buckle, built for daily uniform wear and long-lasting durability.",
-    tags: ["25mm", "30mm", "35mm"],
+    tags: ["35mm", "38mm"],
     swatches: ["#9BCAA0", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
   },
   {
