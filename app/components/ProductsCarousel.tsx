@@ -14,7 +14,7 @@ const baseProducts = [
     useCase: "Finished neck lanyards for staff, students, and visitor badges, available with breakaway safety options.",
     tags: ["16mm", "20mm", "25mm"],
     swatches: ["#DF8B8F", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
-    image: "/lanyards.png",
+    image: "/neck-lanyard.jpeg",
   },
   {
     name: "School Belt Roll",
