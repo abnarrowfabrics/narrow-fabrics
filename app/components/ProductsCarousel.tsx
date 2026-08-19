@@ -33,6 +33,14 @@ const baseProducts = [
     useCase: "Woven keychain straps with metal fittings for branding, gifting and everyday carry.",
     tags: ["16mm", "20mm", "25mm"],
     swatches: ["#E0B15C", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
+    image: "/keychain.jpeg",
+  },
+  {
+    name: "Wrist Band",
+    useCase: "Woven wrist bands for events, festivals and access control, with custom printing and adjustable fittings.",
+    tags: ["15mm", "20mm", "25mm"],
+    swatches: ["#7EA6D9", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
+    image: "/wrist-band-1.jpeg",
   },
 ];
 
