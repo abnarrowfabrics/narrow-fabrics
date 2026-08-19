@@ -6,6 +6,15 @@ import Link from "next/link";
 import { navLinks } from "./Header";
 import { WHATSAPP_NUMBER, WhatsAppIcon } from "../lib/whatsapp";
 
+const iconButtonClass =
+  "flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-white/8 text-white hover:bg-[#1E3A8A]";
+
+const phoneContacts = [
+  { name: "Anoop Mishra", number: "8920312424" },
+  { name: "Dinesh Mittal", number: "9354876619" },
+  { name: "Himanshu Mittal", number: "8527911209" },
+];
+
 const socialLinks = [
   {
     label: "Instagram",
@@ -59,24 +68,48 @@ export default function Footer() {
             durability, custom made.
           </p>
           <div className="flex gap-2.5">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-white/8 text-white hover:bg-[#1E3A8A]"
-              >
-                {social.path ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d={social.path} />
-                  </svg>
-                ) : (
-                  <WhatsAppIcon />
-                )}
-              </a>
-            ))}
+            {socialLinks.map((social) => {
+              const icon = social.path ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d={social.path} />
+                </svg>
+              ) : (
+                <WhatsAppIcon />
+              );
+
+              return social.label === "Call" ? (
+                <details key={social.label} className="relative">
+                  <summary
+                    aria-label="Call"
+                    className={`${iconButtonClass} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}
+                  >
+                    {icon}
+                  </summary>
+                  <div className="absolute bottom-full left-0 z-10 mb-2 w-max rounded-lg bg-[#17171A] p-1.5 ring-1 ring-white/12">
+                    {phoneContacts.map((c) => (
+                      <a
+                        key={c.number}
+                        href={`tel:+91${c.number}`}
+                        className="block rounded px-3 py-2 text-sm whitespace-nowrap text-gray-300 hover:bg-white/8 hover:text-white"
+                      >
+                        {c.name} <span className="text-gray-500">+91 {c.number}</span>
+                      </a>
+                    ))}
+                  </div>
+                </details>
+              ) : (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className={iconButtonClass}
+                >
+                  {icon}
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -104,8 +137,14 @@ export default function Footer() {
           <div className="text-sm leading-[1.8] text-gray-400">
             <div>Plot No. 00, Industrial Estate,</div>
             <div>Placeholder City, India – 000000</div>
-            <div className="mt-2.5">+91 85279 11209</div>
-            <div>abnarrowfabrics@gmail.com</div>
+            <div className="mt-2.5 flex flex-col gap-1">
+              {phoneContacts.map((c) => (
+                <a key={c.number} href={`tel:+91${c.number}`} className="hover:text-white">
+                  +91 {c.number} — {c.name}
+                </a>
+              ))}
+            </div>
+            <div className="mt-2.5">abnarrowfabrics@gmail.com</div>
           </div>
         </div>
 
