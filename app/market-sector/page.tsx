@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { sectors } from "../data/sectors";
@@ -35,12 +36,23 @@ export default function MarketSector() {
               key={sector.name}
               className="overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
             >
-              <div
-                style={placeholderStyle}
-                className="flex aspect-video items-center justify-center p-5 text-center font-mono text-xs text-gray-500"
-              >
-                [ IMAGE PLACEHOLDER — {sector.name} ]
-              </div>
+              {sector.image ? (
+                <div className="relative aspect-video">
+                  <Image
+                    src={sector.image}
+                    alt={sector.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div
+                  style={placeholderStyle}
+                  className="flex aspect-video items-center justify-center p-5 text-center font-mono text-xs text-gray-500"
+                >
+                  [ IMAGE PLACEHOLDER — {sector.name} ]
+                </div>
+              )}
               <div className="p-7">
                 <h2 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
                   {sector.name}

@@ -106,7 +106,7 @@ export default function ProductsCarousel() {
           behavior: "smooth",
         });
       }
-    }, 4000);
+    }, 4000 / 0.75);
 
     return () => clearInterval(interval);
   }, []);

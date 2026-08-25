@@ -2,10 +2,12 @@ export const sectors = [
   {
     name: "Promotional",
     description: "Promotional webbings for branding, messages & safety instructions.",
+    image: "/Promotional.png",
   },
   {
     name: "Corporate",
     description: "Custom lanyards, badge holders & branded webbings for corporate identity and events.",
+    image: "/corporate.png",
   },
   {
     name: "School",
