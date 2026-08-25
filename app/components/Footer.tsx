@@ -10,9 +10,9 @@ const iconButtonClass =
   "flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-white/8 text-white hover:bg-[#1E3A8A]";
 
 const phoneContacts = [
+  { name: "Himanshu Mittal", number: "8527911209" },
   { name: "Anoop Mishra", number: "8920312424" },
   { name: "Dinesh Mittal", number: "9354876619" },
-  { name: "Himanshu Mittal", number: "8527911209" },
 ];
 
 const socialLinks = [
