@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HeroMedia from "./components/HeroMedia";
 import IndiaMap from "./components/IndiaMap";
 import ProductsCarousel from "./components/ProductsCarousel";
 import HashScroll from "./components/HashScroll";
@@ -53,14 +54,7 @@ export default function Home() {
         id="home"
         className="relative flex min-h-[min(92vh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
       >
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/bgvideo-herosection.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+        <HeroMedia />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0C]/55 via-[#0B0B0C]/72 to-[#0B0B0C]/92" />
 
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-7 px-5 pt-[clamp(100px,18vh,180px)] sm:px-10">
