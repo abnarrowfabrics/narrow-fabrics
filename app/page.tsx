@@ -251,7 +251,7 @@ export default function Home() {
               Find Us
             </div>
             <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-              Samaypur, Badli, Delhi 110042
+              Samaypur Industrial Area, Delhi 110042
             </h2>
           </div>
           <div className="overflow-hidden rounded-xl border border-gray-200">
@@ -262,7 +262,7 @@ export default function Home() {
               style={{ border: 0 }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="AB Narrow Fabrics location — Samaypur, Badli, Delhi 110042"
+              title="AB Narrow Fabrics location — Samaypur Industrial Area, Delhi 110042"
             />
           </div>
         </div>

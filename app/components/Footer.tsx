@@ -135,8 +135,8 @@ export default function Footer() {
             Contact
           </div>
           <div className="text-sm leading-[1.8] text-gray-400">
-            <div>Plot No. 00, Industrial Estate,</div>
-            <div>Placeholder City, India – 000000</div>
+            <div>Plot No. 45, KH. No. 80, Gali No. 09,</div>
+            <div>Samaypur Industrial Area, Delhi 110042</div>
             <div className="mt-2.5 flex flex-col gap-1">
               {phoneContacts.map((c) => (
                 <a key={c.number} href={`tel:+91${c.number}`} className="hover:text-white">

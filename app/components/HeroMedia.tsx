@@ -21,7 +21,7 @@ export default function HeroMedia() {
       >
         <video
           ref={videoRef}
-          className="h-full w-1/2 object-cover"
+          className="h-full w-1/2 object-cover brightness-150"
           src="/bgvideo-herosection.mp4"
           autoPlay
           muted
