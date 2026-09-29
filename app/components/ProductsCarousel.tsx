@@ -75,35 +75,19 @@ export default function ProductsCarousel() {
     }, 100);
 
     const interval = setInterval(() => {
-      if (!container) return;
-      
-      const children = Array.from(container.children) as HTMLElement[];
-      
-      // Find the card currently closest to the center
-      const containerCenter = container.scrollLeft + container.clientWidth / 2;
-      let closestChild = children[0];
-      let minDistance = Infinity;
-      let closestIndex = 0;
+      const card = container.querySelector<HTMLElement>(".carousel-card");
+      if (!card) return;
+      const step = card.offsetWidth + parseFloat(getComputedStyle(container).columnGap);
+      const set = step * baseProducts.length;
 
-      children.forEach((child, index) => {
-        if (!child.classList.contains("carousel-card")) return;
-        const childCenter = child.offsetLeft + child.clientWidth / 2;
-        const distance = Math.abs(childCenter - containerCenter);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestChild = child;
-          closestIndex = index;
-        }
-      });
+      // Running out of cards on the left: jump forward by whole product sets
+      // (looks identical) so the carousel never stops
+      if (container.scrollLeft < set) {
+        container.scrollTo({ left: container.scrollLeft + set * 20, behavior: "instant" });
+      }
 
       // User wants items to "come from the left" meaning we slide to the LEFT (previous item)
-      const prevChild = children[closestIndex - 1];
-      if (prevChild) {
-        container.scrollTo({
-          left: prevChild.offsetLeft - container.clientWidth / 2 + prevChild.clientWidth / 2,
-          behavior: "smooth",
-        });
-      }
+      container.scrollBy({ left: -step, behavior: "smooth" });
     }, 4000 / 0.75);
 
     return () => clearInterval(interval);
