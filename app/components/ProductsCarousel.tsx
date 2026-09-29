@@ -110,7 +110,7 @@ export default function ProductsCarousel() {
   }, []);
 
   return (
-    <div className="w-full bg-[#F7F8FA] py-[clamp(50px,7vw,90px)]">
+    <div className="w-full bg-[#EEF1F7] py-[clamp(50px,7vw,90px)]">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center px-5 sm:px-10">
           <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">

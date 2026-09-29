@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -55,17 +56,18 @@ export default function Home() {
         className="relative -mt-[69px] flex min-h-[min(92vh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
       >
         <HeroMedia />
-        <div className="absolute inset-0 bg-[#0B0B0C]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C]/65 via-[#0B0B0C]/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0C]/55 via-transparent to-transparent" />
 
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-7 px-5 pt-[clamp(100px,18vh,180px)] sm:px-10">
-          <div className="max-w-3xl animate-[fadeUp_0.8s_ease_both]">
-            <div className="mb-3.5 text-sm font-semibold tracking-[1.5px] text-[#93A9E0] uppercase">
+          <div className="max-w-3xl animate-[fadeUp_0.8s_ease_both] [text-shadow:0_2px_14px_rgba(0,0,0,0.65)]">
+            <div className="mb-3.5 text-sm font-semibold tracking-[1.5px] text-white uppercase">
               Narrow Fabric Manufacturing — India
             </div>
             <h1 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(38px,6vw,72px)] leading-[1.03] font-extrabold text-white">
               India&apos;s Fastest Growing Narrow Fabric Lanyard Manufacturer
             </h1>
-            <p className="mb-8 max-w-xl text-[clamp(16px,1.6vw,19px)] leading-relaxed text-gray-300">
+            <p className="mb-8 max-w-xl text-[clamp(16px,1.6vw,19px)] leading-relaxed text-white">
               Precision-woven lanyards, belts and narrow fabric trims built for durability and
               finished to exacting quality standards — fully customizable in width, material,
               color and attachment for corporate, education and industrial buyers.
@@ -153,49 +155,27 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="mx-auto max-w-6xl scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
-        <div className="mx-auto mb-14 max-w-xl text-center">
-          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
-            Why Choose Us
+      <section className="bg-[#1E3A8A] px-5 py-[clamp(70px,10vw,120px)] text-white sm:px-10">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-start gap-x-16 gap-y-10 lg:grid-cols-[4fr_7fr]">
+          <div>
+            <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(34px,4.4vw,56px)] leading-[1.05] font-extrabold text-balance">
+              Why buyers choose AB Narrow Fabrics
+            </h2>
+            <p className="max-w-sm text-[16px] leading-[1.75] text-[#DCE3F5]">
+              A decade on the loom, made-to-spec production and a quality check on every order.
+            </p>
           </div>
-          <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-            Why Choose AB Narrow Fabrics
-          </h2>
-        </div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8">
-          {whyChooseUs.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
-            >
-              <h3 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
-                {item.title}
-              </h3>
-              <p className="text-[15px] leading-relaxed text-gray-600">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* TAGLINE BANNER */}
-      <section className="relative overflow-hidden bg-[#0B0B0C] px-5 py-[clamp(70px,10vw,120px)] text-center sm:px-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(135deg,#111827,#111827 14px,#1a2333 14px,#1a2333 28px)",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0C]/55 via-[#0B0B0C]/72 to-[#0B0B0C]/92" />
-        <div className="relative mx-auto max-w-3xl">
-          <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(28px,4vw,48px)] leading-[1.1] font-extrabold text-white">
-            India&apos;s Fastest Growing Narrow Fabric Lanyard Manufacturer
-          </h2>
-          <p className="text-[16px] leading-relaxed text-gray-300">
-            From a single weaving unit to a nationwide supplier — built on precision, durability
-            and a relentless focus on quality, order after order.
-          </p>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-x-10">
+            {whyChooseUs.map((item) => (
+              <div key={item.title} className="border-t border-white/25 py-7">
+                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-2xl font-bold">
+                  {item.title}
+                </h3>
+                <p className="text-[15px] leading-relaxed text-[#DCE3F5]">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -216,8 +196,34 @@ export default function Home() {
         <IndiaMap />
       </section>
 
+      {/* TAGLINE BANNER */}
+      <section className="relative overflow-hidden px-5 py-[clamp(80px,12vw,150px)] sm:px-10">
+        <Image
+          src="/lanyards.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1433]/95 via-[#1E3A8A]/85 to-[#1E3A8A]/70" />
+        <div className="relative mx-auto max-w-6xl">
+          <h2 className="mb-5 max-w-2xl font-[family-name:var(--font-heading)] text-[clamp(32px,4.6vw,58px)] leading-[1.05] font-extrabold text-balance text-white">
+            From a single loom to a nationwide supplier
+          </h2>
+          <p className="mb-8 max-w-xl text-[17px] leading-relaxed text-[#DCE3F5]">
+            Built on precision, durability and a relentless focus on quality, order after order.
+          </p>
+          <a
+            href="#contact"
+            className="inline-block rounded-sm bg-white px-7 py-4 text-[15px] font-semibold text-[#1E3A8A] hover:bg-[#EEF1F7]"
+          >
+            Get a Quote
+          </a>
+        </div>
+      </section>
+
       {/* MARKET SECTOR OVERVIEW */}
-      <section id="market-sector" className="scroll-mt-20 bg-[#F7F8FA] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+      <section id="market-sector" className="scroll-mt-20 bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-xl text-center">
             <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
@@ -232,12 +238,23 @@ export default function Home() {
             {sectors.slice(0, 4).map((sector) => (
               <div
                 key={sector.name}
-                className="rounded-xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
+                className="overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
               >
-                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
-                  {sector.name}
-                </h3>
-                <p className="text-[15px] leading-relaxed text-gray-600">{sector.description}</p>
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={sector.image}
+                    alt={`${sector.name} lanyards and webbings`}
+                    fill
+                    sizes="(min-width: 1152px) 270px, (min-width: 640px) 45vw, 90vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="mb-2 font-[family-name:var(--font-heading)] text-xl font-bold">
+                    {sector.name}
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-gray-600">{sector.description}</p>
+                </div>
               </div>
             ))}
           </div>
