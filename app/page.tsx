@@ -52,7 +52,7 @@ export default function Home() {
       {/* HERO */}
       <section
         id="home"
-        className="relative flex min-h-[min(92vh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
+        className="relative -mt-[69px] flex min-h-[min(92vh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
       >
         <HeroMedia />
         <div className="absolute inset-0 bg-[#0B0B0C]/50" />

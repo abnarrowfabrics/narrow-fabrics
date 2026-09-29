@@ -8,6 +8,7 @@ const baseProducts = [
     tags: ["12mm", "16mm", "20mm", "25mm"],
     swatches: ["#ECA985", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
     image: "/lanyards.png",
+    widthVideos: { "25mm": "/25mm-lanyard-roll.mp4" } as Record<string, string>,
   },
   {
     name: "Neck Lanyard",
@@ -48,7 +49,11 @@ const placeholderStyle = {
     "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
 };
 
-type Product = (typeof baseProducts)[number] & { image?: string; widthImages?: Record<string, string> };
+type Product = (typeof baseProducts)[number] & {
+  image?: string;
+  widthImages?: Record<string, string>;
+  widthVideos?: Record<string, string>;
+};
 
 export default function ProductsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -214,7 +219,18 @@ export default function ProductsCarousel() {
               style={active.image ? undefined : placeholderStyle}
               className="mb-6 flex h-64 items-center justify-center overflow-hidden rounded-lg"
             >
-              {active.image ? (
+              {active.widthVideos?.[width] ? (
+                <video
+                  key={width}
+                  src={active.widthVideos[width]}
+                  className="h-full w-full object-contain"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : active.image ? (
                 <button
                   type="button"
                   onClick={() => setZoomed(true)}

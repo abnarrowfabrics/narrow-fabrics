@@ -17,7 +17,7 @@ export default function Header() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 rounded-b-2xl border-b border-gray-200 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-10">
         <Link href="/" className="flex flex-shrink-0 items-center gap-2.5">
           <Image src="/logo.jpg" alt="AB Narrow Fabrics" width={40} height={40} className="h-10 w-10 rounded-md object-contain" />
