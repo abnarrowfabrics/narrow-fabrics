@@ -22,6 +22,7 @@ const baseProducts = [
     tags: ["35mm", "38mm"],
     swatches: ["#9BCAA0", "#1E3A8A", "#0B0B0C", "#FFFFFF"],
     image: "/school belt rolls.png",
+    widthImages: { "38mm": "/38mm-belt.jpeg" } as Record<string, string>,
   },
   {
     name: "Keychain",
@@ -47,12 +48,13 @@ const placeholderStyle = {
     "repeating-linear-gradient(135deg,#E5E7EB,#E5E7EB 12px,#EEF0F3 12px,#EEF0F3 24px)",
 };
 
-type Product = (typeof baseProducts)[number] & { image?: string };
+type Product = (typeof baseProducts)[number] & { image?: string; widthImages?: Record<string, string> };
 
 export default function ProductsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<Product | null>(null);
   const [width, setWidth] = useState<string>("");
+  const [zoomed, setZoomed] = useState(false);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -213,11 +215,17 @@ export default function ProductsCarousel() {
               className="mb-6 flex h-64 items-center justify-center overflow-hidden rounded-lg"
             >
               {active.image ? (
-                <img
-                  src={active.image}
-                  alt={active.name}
-                  className="h-full w-full object-cover"
-                />
+                <button
+                  type="button"
+                  onClick={() => setZoomed(true)}
+                  className="h-full w-full cursor-zoom-in"
+                >
+                  <img
+                    src={active.widthImages?.[width] ?? active.image}
+                    alt={active.name}
+                    className="h-full w-full object-contain"
+                  />
+                </button>
               ) : (
                 <div
                   style={{
@@ -228,6 +236,27 @@ export default function ProductsCarousel() {
                 />
               )}
             </div>
+
+            {zoomed && (
+              <div
+                onClick={() => setZoomed(false)}
+                className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-5"
+              >
+                <button
+                  type="button"
+                  onClick={() => setZoomed(false)}
+                  aria-label="Close full screen image"
+                  className="absolute right-5 top-5 text-4xl leading-none text-white/80 hover:text-white"
+                >
+                  ×
+                </button>
+                <img
+                  src={active.widthImages?.[width] ?? active.image}
+                  alt={active.name}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-2">
               {active.tags.map((tag) => (
