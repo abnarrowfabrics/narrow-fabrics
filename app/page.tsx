@@ -55,7 +55,7 @@ export default function Home() {
         className="relative flex min-h-[min(92vh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
       >
         <HeroMedia />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0C]/55 via-[#0B0B0C]/72 to-[#0B0B0C]/92" />
+        <div className="absolute inset-0 bg-[#0B0B0C]/50" />
 
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-7 px-5 pt-[clamp(100px,18vh,180px)] sm:px-10">
           <div className="max-w-3xl animate-[fadeUp_0.8s_ease_both]">
