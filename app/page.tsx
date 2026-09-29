@@ -109,9 +109,9 @@ export default function Home() {
       {/* ABOUT */}
       <section
         id="about"
-        className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10"
+        className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10 lg:grid-cols-[5fr_7fr] lg:gap-12"
       >
-        <div className="lg:pr-8">
+        <div>
           <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(40px,5vw,64px)] leading-[1.1] font-extrabold text-[#1E3A8A]">
             About Us
           </h2>
@@ -130,11 +130,21 @@ export default function Home() {
             Learn more about us →
           </Link>
         </div>
-        <img
-          src="/about-us-home.png"
-          alt="AB Narrow Fabrics production floor"
-          className="aspect-[4/3] w-full rounded-[10px] border border-black/8 object-cover"
-        />
+        <div className="grid grid-cols-2 gap-4">
+          <img
+            src="/about-us-home.png"
+            alt="AB Narrow Fabrics production floor"
+            className="aspect-[3/4] w-full rounded-[10px] border border-black/8 object-cover"
+          />
+          <video
+            src="/25mm-lanyard-roll.mp4"
+            className="aspect-[3/4] w-full rounded-[10px] border border-black/8 object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
       </section>
 
       {/* PRODUCTS */}
