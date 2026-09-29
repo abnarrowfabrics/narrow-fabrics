@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import PageHero from "../components/PageHero";
+import CtaBanner from "../components/CtaBanner";
+import { stats } from "../data/stats";
 
 export const metadata: Metadata = {
   title: "About Us — AB Narrow Fabrics",
@@ -34,14 +37,17 @@ export default function About() {
     <div className="overflow-x-clip">
       <Header />
 
+      <PageHero
+        title="Built on the loom, driven by craftsmanship"
+        subtitle="From a small weaving unit to a full-scale narrow fabric manufacturer serving clients across India."
+        image="/38mm-belt.jpeg"
+      />
+
       <section className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div>
-          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
-            About Us
-          </div>
-          <h1 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-            Built on the loom, driven by craftsmanship
-          </h1>
+          <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(34px,4.4vw,56px)] leading-[1.05] font-extrabold text-[#1E3A8A]">
+            Our story
+          </h2>
           <p className="mb-4.5 text-[16px] leading-[1.75] text-gray-600">
             AB Narrow Fabrics began as a small weaving unit with a single goal: make narrow
             fabric that lasts. What started with a handful of looms and a founder who insisted
@@ -65,8 +71,22 @@ export default function About() {
         />
       </section>
 
+      {/* STATS */}
+      <section className="bg-[#1E3A8A] px-5 py-[clamp(56px,7vw,88px)] text-white sm:px-10">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-10">
+          {stats.map((stat) => (
+            <div key={stat.label} className="border-t border-white/25 py-6">
+              <div className="mb-1.5 font-[family-name:var(--font-heading)] text-[clamp(44px,5vw,60px)] leading-none font-extrabold">
+                {stat.value}
+              </div>
+              <div className="text-[15px] text-[#DCE3F5]">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* BOARD OF DIRECTORS */}
-      <section className="mx-auto max-w-6xl scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+      <section className="scroll-mt-20 bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div className="mx-auto mb-14 max-w-xl text-center">
           <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
             Board of Directors
@@ -104,6 +124,8 @@ export default function About() {
           ))}
         </div>
       </section>
+
+      <CtaBanner />
 
       <Footer />
     </div>

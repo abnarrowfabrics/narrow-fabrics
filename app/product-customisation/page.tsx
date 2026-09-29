@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PlayableVideo from "../components/PlayableVideo";
+import PageHero from "../components/PageHero";
+import CtaBanner from "../components/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Product Customisation — AB Narrow Fabrics",
@@ -14,15 +16,15 @@ export default function ProductCustomisation() {
     <div className="overflow-x-clip">
       <Header />
 
+      <PageHero
+        title="Product Customisation"
+        subtitle="Your width, material, color and attachment — lanyards and narrow fabrics made to your spec."
+        image="/neck-lanyard.jpeg"
+      />
+
       <section className="mx-auto max-w-6xl scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
-            Product Customisation
-          </div>
-          <h1 className="mb-6 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-            Product Customisation
-          </h1>
-          <p className="text-[16px] leading-[1.75] text-gray-600">
+          <p className="text-[clamp(18px,2vw,22px)] leading-[1.7] text-gray-700">
             AB Narrow Fabrics has gained significant industry and application knowledge over 10+
             years of narrow fabric weaving. This knowledge, combined with our range of
             manufacturing capabilities, enables us to work in partnership with our customers to
@@ -33,7 +35,7 @@ export default function ProductCustomisation() {
         </div>
       </section>
 
-      <section className="bg-[#F7F8FA] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+      <section className="bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16">
           <div>
             <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(24px,3vw,34px)] leading-[1.15] font-bold">
@@ -92,6 +94,11 @@ export default function ProductCustomisation() {
           <PlayableVideo src="/video.mp4" className="aspect-[4/3] w-full md:order-1" />
         </div>
       </section>
+
+      <CtaBanner
+        title="Have a spec in mind? We'll weave it."
+        text="Share your width, material, color and attachment requirements and we'll get back to you with a quote."
+      />
 
       <Footer />
     </div>

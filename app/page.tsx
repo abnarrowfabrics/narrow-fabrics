@@ -6,14 +6,9 @@ import HeroMedia from "./components/HeroMedia";
 import IndiaMap from "./components/IndiaMap";
 import ProductsCarousel from "./components/ProductsCarousel";
 import HashScroll from "./components/HashScroll";
+import CtaBanner from "./components/CtaBanner";
 import { sectors } from "./data/sectors";
-
-const stats = [
-  { value: "10+", label: "Years of Manufacturing Experience" },
-  { value: "200+", label: "Clients Served Nationwide" },
-  { value: "100%", label: "Custom Design Capability" },
-  { value: "20+", label: "Skilled Employees" },
-];
+import { stats } from "./data/stats";
 
 const products = [
   {
@@ -196,31 +191,7 @@ export default function Home() {
         <IndiaMap />
       </section>
 
-      {/* TAGLINE BANNER */}
-      <section className="relative overflow-hidden px-5 py-[clamp(80px,12vw,150px)] sm:px-10">
-        <Image
-          src="/lanyards.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1433]/95 via-[#1E3A8A]/85 to-[#1E3A8A]/70" />
-        <div className="relative mx-auto max-w-6xl">
-          <h2 className="mb-5 max-w-2xl font-[family-name:var(--font-heading)] text-[clamp(32px,4.6vw,58px)] leading-[1.05] font-extrabold text-balance text-white">
-            From a single loom to a nationwide supplier
-          </h2>
-          <p className="mb-8 max-w-xl text-[17px] leading-relaxed text-[#DCE3F5]">
-            Built on precision, durability and a relentless focus on quality, order after order.
-          </p>
-          <a
-            href="#contact"
-            className="inline-block rounded-sm bg-white px-7 py-4 text-[15px] font-semibold text-[#1E3A8A] hover:bg-[#EEF1F7]"
-          >
-            Get a Quote
-          </a>
-        </div>
-      </section>
+      <CtaBanner />
 
       {/* MARKET SECTOR OVERVIEW */}
       <section id="market-sector" className="scroll-mt-20 bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
