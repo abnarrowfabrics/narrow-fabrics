@@ -47,6 +47,7 @@ export default function Header() {
         <button
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Menu"
+          aria-expanded={menuOpen}
           className="flex h-10 w-10 flex-shrink-0 flex-col items-center justify-center gap-1 rounded-md border border-gray-200 md:hidden"
         >
           <span className="h-0.5 w-5 bg-[#0B0B0C]" />

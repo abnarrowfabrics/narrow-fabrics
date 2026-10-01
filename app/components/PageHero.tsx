@@ -13,7 +13,7 @@ export default function PageHero({
     <section className="relative -mt-[69px] flex min-h-[min(62vh,580px)] items-end overflow-hidden bg-[#1E3A8A]">
       {image && (
         <>
-          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
+          <Image src={image} alt="" fill preload sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C]/80 via-[#0B0B0C]/45 to-[#0B0B0C]/10" />
         </>
       )}

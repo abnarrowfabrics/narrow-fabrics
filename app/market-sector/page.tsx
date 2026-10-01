@@ -28,7 +28,7 @@ export default function MarketSector() {
       />
 
       <section className="scroll-mt-20 bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-8">
           {sectors.map((sector) => (
             <div
               key={sector.name}
@@ -40,6 +40,7 @@ export default function MarketSector() {
                     src={sector.image}
                     alt={sector.name}
                     fill
+                    sizes="(min-width: 1152px) 360px, (min-width: 640px) 45vw, 90vw"
                     className="object-cover"
                   />
                 </div>

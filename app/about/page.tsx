@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PageHero from "../components/PageHero";
@@ -43,7 +44,7 @@ export default function About() {
         image="/38mm-belt.jpeg"
       />
 
-      <section className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+      <section className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] items-center gap-10 md:gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div>
           <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(34px,4.4vw,56px)] leading-[1.05] font-extrabold text-[#1E3A8A]">
             Our story
@@ -64,16 +65,19 @@ export default function About() {
             packed with the same care as the first batch we ever shipped.
           </p>
         </div>
-        <img
+        <Image
           src="/built-by-loom-image.png"
           alt="AB Narrow Fabrics weaving loom"
-          className="aspect-[4/3] w-full rounded-[10px] border border-black/8 object-cover"
+          width={800}
+          height={600}
+          sizes="(min-width: 1152px) 540px, (min-width: 768px) 45vw, 100vw"
+          className="aspect-[4/3] h-auto w-full rounded-[10px] border border-black/8 object-cover"
         />
       </section>
 
       {/* STATS */}
       <section className="bg-[#1E3A8A] px-5 py-[clamp(56px,7vw,88px)] text-white sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-10">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(200px,100%),1fr))] gap-x-10">
           {stats.map((stat) => (
             <div key={stat.label} className="border-t border-white/25 py-6">
               <div className="mb-1.5 font-[family-name:var(--font-heading)] text-[clamp(44px,5vw,60px)] leading-none font-extrabold">
@@ -96,11 +100,11 @@ export default function About() {
           </h2>
         </div>
 
-        <div className="mx-auto grid max-w-4xl grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-10">
+        <div className="mx-auto grid max-w-4xl grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-10">
           {directors.map((person) => (
             <div
               key={person.name}
-              className="rounded-xl border border-gray-200 bg-white p-10 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
+              className="rounded-xl border border-gray-200 bg-white p-6 text-center sm:p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
             >
               {person.photo ? (
                 <img

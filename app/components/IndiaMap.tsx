@@ -45,7 +45,7 @@ function curvePath(x1: number, y1: number, x2: number, y2: number) {
 
 export default function IndiaMap() {
   return (
-    <div className="relative overflow-hidden p-6 sm:p-10 lg:p-0 w-full bg-transparent">
+    <div className="relative overflow-hidden sm:p-10 lg:p-0 w-full bg-transparent">
 
       <div className="relative flex flex-col items-center justify-center">
         <svg viewBox="-25 15 335 330" className="w-full max-w-[700px]">

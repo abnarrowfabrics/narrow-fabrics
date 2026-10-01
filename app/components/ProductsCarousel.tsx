@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const baseProducts = [
   {
@@ -115,7 +116,7 @@ export default function ProductsCarousel() {
         {infiniteProducts.map((product: any, i: number) => (
           <div
             key={`${product.name}-${i}`}
-            className="carousel-card grid w-[85vw] max-w-[800px] shrink-0 snap-center grid-cols-[repeat(auto-fit,minmax(280px,1fr))] items-center gap-10 rounded-xl border border-gray-200 bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:w-[80vw]"
+            className="carousel-card grid w-[85vw] max-w-[800px] shrink-0 snap-center grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] items-center gap-6 rounded-xl border border-gray-200 bg-white p-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:w-[80vw] sm:gap-10 sm:p-8"
           >
             {/* Image Placeholder */}
             <button
@@ -128,9 +129,12 @@ export default function ProductsCarousel() {
               className="flex aspect-[4/3] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg p-5 text-center font-mono text-xs text-gray-500 transition hover:brightness-95"
             >
               {product.image ? (
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width={800}
+                  height={600}
+                  sizes="(min-width: 640px) 380px, 80vw"
                   className="h-full w-full rounded-lg object-cover"
                 />
               ) : (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PlayableVideo from "../components/PlayableVideo";
@@ -36,7 +37,7 @@ export default function ProductCustomisation() {
       </section>
 
       <section className="bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] items-center gap-10 md:gap-16">
           <div>
             <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(24px,3vw,34px)] leading-[1.15] font-bold">
               Specialist Narrow Fabric Manufacturer
@@ -58,16 +59,19 @@ export default function ProductCustomisation() {
               solutions to meet specific requirements.
             </p>
           </div>
-          <img
+          <Image
             src="/built-by-loom-image.png"
             alt="AB Narrow Fabrics narrow fabric manufacturing"
-            className="aspect-[4/3] w-full rounded-[10px] border border-black/8 object-cover"
+            width={800}
+            height={600}
+            sizes="(min-width: 1152px) 540px, (min-width: 768px) 45vw, 100vw"
+            className="aspect-[4/3] h-auto w-full rounded-[10px] border border-black/8 object-cover"
           />
         </div>
       </section>
 
       <section className="px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] items-center gap-10 md:gap-16">
           <div className="md:order-2">
             <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(24px,3vw,34px)] leading-[1.15] font-bold">
               Experience and Expertise

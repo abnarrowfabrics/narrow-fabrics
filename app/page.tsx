@@ -48,7 +48,7 @@ export default function Home() {
       {/* HERO */}
       <section
         id="home"
-        className="relative -mt-[69px] flex min-h-[min(92vh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
+        className="relative -mt-[69px] flex min-h-[min(92svh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
       >
         <HeroMedia />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C]/65 via-[#0B0B0C]/25 to-transparent" />
@@ -83,17 +83,17 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-[18px] pt-8 pb-8">
+          <div className="flex flex-wrap gap-3 pt-4 pb-8 sm:gap-[18px] sm:pt-8">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className="min-w-[200px] flex-1 basis-[220px] rounded-lg border border-white/16 bg-white/8 p-6 backdrop-blur-sm"
+                className="min-w-[140px] flex-1 basis-[140px] rounded-lg border border-white/16 bg-white/8 p-4 backdrop-blur-sm sm:basis-[220px] sm:p-6"
                 style={{
                   animation: "fadeUp 0.8s ease both, floatSlow 5s ease-in-out infinite",
                   animationDelay: `${i * 0.12}s, 0s`,
                 }}
               >
-                <div className="mb-1.5 font-[family-name:var(--font-heading)] text-4xl font-extrabold text-white">
+                <div className="mb-1.5 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white sm:text-4xl">
                   {stat.value}
                 </div>
                 <div className="text-sm font-medium text-[#C7CDD9]">{stat.label}</div>
@@ -106,7 +106,7 @@ export default function Home() {
       {/* ABOUT */}
       <section
         id="about"
-        className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10 lg:grid-cols-[5fr_7fr] lg:gap-12"
+        className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] items-center gap-10 md:gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10 lg:grid-cols-[5fr_7fr] lg:gap-12"
       >
         <div>
           <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(40px,5vw,64px)] leading-[1.1] font-extrabold text-[#1E3A8A]">
@@ -128,10 +128,13 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <img
+          <Image
             src="/about-us-home.png"
             alt="AB Narrow Fabrics production floor"
-            className="aspect-[3/4] w-full rounded-[10px] border border-black/8 object-cover"
+            width={600}
+            height={800}
+            sizes="(min-width: 1024px) 330px, 45vw"
+            className="aspect-[3/4] h-auto w-full rounded-[10px] border border-black/8 object-cover"
           />
           <video
             src="/25mm-lanyard-roll.mp4"
@@ -151,7 +154,7 @@ export default function Home() {
 
       {/* WHY CHOOSE US */}
       <section className="bg-[#1E3A8A] px-5 py-[clamp(70px,10vw,120px)] text-white sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-start gap-x-16 gap-y-10 lg:grid-cols-[4fr_7fr]">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] items-start gap-x-16 gap-y-10 lg:grid-cols-[4fr_7fr]">
           <div>
             <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(34px,4.4vw,56px)] leading-[1.05] font-extrabold text-balance">
               Why buyers choose AB Narrow Fabrics
@@ -161,7 +164,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-x-10">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-x-10">
             {whyChooseUs.map((item) => (
               <div key={item.title} className="border-t border-white/25 py-7">
                 <h3 className="mb-2 font-[family-name:var(--font-heading)] text-2xl font-bold">
@@ -175,7 +178,7 @@ export default function Home() {
       </section>
 
       {/* PAN INDIA DELIVERY */}
-      <section className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-center gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
+      <section className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] items-center gap-10 md:gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div>
           <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
             Pan India Delivery
@@ -205,7 +208,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-8">
             {sectors.slice(0, 4).map((sector) => (
               <div
                 key={sector.name}
@@ -255,9 +258,8 @@ export default function Home() {
           <div className="overflow-hidden rounded-xl border border-gray-200">
             <iframe
               src="https://www.google.com/maps?q=28.748667,77.146556&output=embed"
-              width="100%"
-              height="420"
               style={{ border: 0 }}
+              className="h-[300px] w-full sm:h-[420px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="AB Narrow Fabrics location — Samaypur Industrial Area, Delhi 110042"

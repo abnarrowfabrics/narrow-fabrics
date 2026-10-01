@@ -55,7 +55,7 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="scroll-mt-20 bg-[#0B0B0C] px-5 pt-[clamp(60px,8vw,90px)] pb-8 sm:px-10">
-      <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-12 border-b border-white/12 pb-14">
+      <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-12 border-b border-white/12 pb-14">
         <div>
           <Link href="/" className="mb-4.5 flex items-center gap-2.5">
             <Image src="/logo.jpg" alt="AB Narrow Fabrics" width={40} height={40} className="h-10 w-10 rounded-md bg-white object-contain p-0.5" />
