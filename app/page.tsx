@@ -51,15 +51,16 @@ export default function Home() {
         className="relative -mt-[69px] flex min-h-[min(92svh,860px)] scroll-mt-20 items-end overflow-hidden bg-[#0B0B0C]"
       >
         <HeroMedia />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C]/65 via-[#0B0B0C]/25 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0C]/55 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0C]/85 via-[#0B0B0C]/45 to-[#0B0B0C]/20 sm:hidden" />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-[#0B0B0C]/65 via-[#0B0B0C]/25 to-transparent sm:block" />
+        <div className="absolute inset-0 hidden bg-gradient-to-t from-[#0B0B0C]/55 via-transparent to-transparent sm:block" />
 
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-7 px-5 pt-[clamp(100px,18vh,180px)] sm:px-10">
           <div className="max-w-3xl animate-[fadeUp_0.8s_ease_both] [text-shadow:0_2px_14px_rgba(0,0,0,0.65)]">
             <div className="mb-3.5 text-sm font-semibold tracking-[1.5px] text-white uppercase">
               Narrow Fabric Manufacturing — India
             </div>
-            <h1 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(38px,6vw,72px)] leading-[1.03] font-extrabold text-white">
+            <h1 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(38px,6vw,72px)] leading-[1.03] font-extrabold text-balance text-white">
               India&apos;s Fastest Growing Narrow Fabric Lanyard Manufacturer
             </h1>
             <p className="mb-8 max-w-xl text-[clamp(16px,1.6vw,19px)] leading-relaxed text-white">
@@ -70,13 +71,13 @@ export default function Home() {
             <div className="flex flex-wrap gap-3.5">
               <a
                 href="#products"
-                className="rounded-sm bg-[#1E3A8A] px-7 py-4 text-[15px] font-semibold text-white hover:bg-[#2F55B5]"
+                className="flex-1 rounded-sm bg-[#1E3A8A] px-6 py-4 text-center text-[15px] font-semibold whitespace-nowrap text-white hover:bg-[#2F55B5] sm:flex-none sm:px-7"
               >
                 Explore Products
               </a>
               <a
                 href="#contact"
-                className="rounded-sm border-[1.5px] border-white/55 px-7 py-4 text-[15px] font-semibold text-white hover:border-white hover:bg-white/10"
+                className="flex-1 rounded-sm border-[1.5px] border-white/55 px-6 py-4 text-center text-[15px] font-semibold whitespace-nowrap text-white hover:border-white hover:bg-white/10 sm:flex-none sm:px-7"
               >
                 Get a Quote
               </a>
@@ -87,7 +88,7 @@ export default function Home() {
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className="min-w-[140px] flex-1 basis-[140px] rounded-lg border border-white/16 bg-white/8 p-4 backdrop-blur-sm sm:basis-[220px] sm:p-6"
+                className="min-w-[140px] flex-1 basis-[140px] rounded-lg border border-white/16 bg-white/8 p-3.5 backdrop-blur-sm sm:basis-[220px] sm:p-6"
                 style={{
                   animation: "fadeUp 0.8s ease both, floatSlow 5s ease-in-out infinite",
                   animationDelay: `${i * 0.12}s, 0s`,
@@ -96,7 +97,7 @@ export default function Home() {
                 <div className="mb-1.5 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white sm:text-4xl">
                   {stat.value}
                 </div>
-                <div className="text-sm font-medium text-[#C7CDD9]">{stat.label}</div>
+                <div className="text-[13px] font-medium text-[#C7CDD9] sm:text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -199,20 +200,20 @@ export default function Home() {
       {/* MARKET SECTOR OVERVIEW */}
       <section id="market-sector" className="scroll-mt-20 bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto mb-14 max-w-xl text-center">
+          <div className="mx-auto mb-10 max-w-xl text-center sm:mb-14">
             <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
               Market Sector
             </div>
-            <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
+            <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold text-balance">
               Sectors we serve
             </h2>
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-8">
+          <div className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] sm:gap-8 sm:overflow-visible sm:px-0">
             {sectors.slice(0, 4).map((sector) => (
               <div
                 key={sector.name}
-                className="overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
+                className="w-[78%] shrink-0 snap-start overflow-hidden rounded-xl sm:w-auto border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,11,12,0.12)]"
               >
                 <div className="relative aspect-[4/3]">
                   <Image
@@ -247,11 +248,11 @@ export default function Home() {
       {/* LOCATION */}
       <section className="scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto mb-14 max-w-xl text-center">
+          <div className="mx-auto mb-10 max-w-xl text-center sm:mb-14">
             <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
               Find Us
             </div>
-            <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
+            <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold text-balance">
               Samaypur Industrial Area, Delhi 110042
             </h2>
           </div>

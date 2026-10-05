@@ -7,7 +7,7 @@ import { navLinks } from "./Header";
 import { WHATSAPP_NUMBER, WhatsAppIcon } from "../lib/whatsapp";
 
 const iconButtonClass =
-  "flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-white/8 text-white hover:bg-[#1E3A8A]";
+  "flex h-11 w-11 items-center justify-center rounded-lg bg-white/8 text-white hover:bg-[#1E3A8A]";
 
 const phoneContacts = [
   { name: "Himanshu Mittal", number: "8527911209" },
@@ -54,7 +54,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="scroll-mt-20 bg-[#0B0B0C] px-5 pt-[clamp(60px,8vw,90px)] pb-8 sm:px-10">
+    <footer id="contact" className="scroll-mt-20 bg-[#0B0B0C] px-5 pt-[clamp(60px,8vw,90px)] pb-24 sm:px-10 sm:pb-8">
       <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-12 border-b border-white/12 pb-14">
         <div>
           <Link href="/" className="mb-4.5 flex items-center gap-2.5">
@@ -117,12 +117,12 @@ export default function Footer() {
           <div className="mb-4.5 text-sm font-bold tracking-wide text-white uppercase">
             Quick Links
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-gray-400 hover:text-white"
+                className="py-1.5 text-sm text-gray-400 hover:text-white"
               >
                 {link.label}
               </Link>
@@ -137,9 +137,9 @@ export default function Footer() {
           <div className="text-sm leading-[1.8] text-gray-400">
             <div>Plot No. 45, KH. No. 80, Gali No. 09,</div>
             <div>Samaypur Industrial Area, Delhi 110042</div>
-            <div className="mt-2.5 flex flex-col gap-1">
+            <div className="mt-2.5 flex flex-col">
               {phoneContacts.map((c) => (
-                <a key={c.number} href={`tel:+91${c.number}`} className="hover:text-white">
+                <a key={c.number} href={`tel:+91${c.number}`} className="py-1 hover:text-white">
                   +91 {c.number} — {c.name}
                 </a>
               ))}
@@ -164,7 +164,7 @@ export default function Footer() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData((s) => ({ ...s, name: e.target.value }))}
-                className="rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-sm text-white placeholder:text-gray-400"
+                className="rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-base text-white placeholder:text-gray-400 sm:text-sm"
               />
               <input
                 type="email"
@@ -172,14 +172,14 @@ export default function Footer() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData((s) => ({ ...s, email: e.target.value }))}
-                className="rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-sm text-white placeholder:text-gray-400"
+                className="rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-base text-white placeholder:text-gray-400 sm:text-sm"
               />
               <textarea
                 placeholder="Tell us what you need"
                 rows={3}
                 value={formData.message}
                 onChange={(e) => setFormData((s) => ({ ...s, message: e.target.value }))}
-                className="resize-y rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-sm text-white placeholder:text-gray-400"
+                className="resize-y rounded-md border border-white/16 bg-white/6 px-3 py-2.5 text-base text-white placeholder:text-gray-400 sm:text-sm"
               />
               <button
                 type="submit"

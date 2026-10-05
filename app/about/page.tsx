@@ -21,15 +21,21 @@ const directors = [
   {
     name: "Himanshu Mittal",
     role: "Director",
-    qualification: "B.Tech in Textile Engineering, [University Name]",
-    description: "[Placeholder bio] Himanshu Mittal co-founded AB Narrow Fabrics with a focus on manufacturing quality and production excellence, overseeing the weaving units and day-to-day operations that keep every order on time.",
+    message: [
+      "When we started, every metre of fabric that came off our looms passed through our own hands before it left the floor. We have grown a great deal since then, but that habit has never left us.",
+      "A lanyard is worn every single day. A school belt has to survive years of a child's life. Neither is allowed to fail. That is why we still obsess over yarn, weave tension and finishing — the small details most people never notice, but always feel.",
+      "When you order from us, you are not buying from a machine. You are trusting a team that takes pride in getting it right, every batch, every time.",
+    ],
     photo: "/himanshu.jpg",
   },
   {
     name: "Anoop Mishra",
     role: "Director",
-    qualification: "[Qualification], [University Name]",
-    description: "[Placeholder bio] Anoop Mishra co-founded AB Narrow Fabrics with a focus on business growth and client relationships, driving the company's expansion into new markets and sectors across India.",
+    message: [
+      "Behind every order is someone counting on us — a school preparing for a new term, a company getting ready for an event, a distributor with customers of their own. We never forget that.",
+      "Our growth has been built on clients who came back, and who brought others with them. We intend to keep earning that trust the simple way: honest timelines, clear communication, and fabric that performs exactly as promised.",
+      "As we reach new markets and new products, that promise stays the same. Thank you for growing with us — the best of AB Narrow Fabrics is still ahead.",
+    ],
   },
 ];
 
@@ -77,7 +83,7 @@ export default function About() {
 
       {/* STATS */}
       <section className="bg-[#1E3A8A] px-5 py-[clamp(56px,7vw,88px)] text-white sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(min(200px,100%),1fr))] gap-x-10">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 sm:gap-x-10 lg:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="border-t border-white/25 py-6">
               <div className="mb-1.5 font-[family-name:var(--font-heading)] text-[clamp(44px,5vw,60px)] leading-none font-extrabold">
@@ -91,12 +97,12 @@ export default function About() {
 
       {/* BOARD OF DIRECTORS */}
       <section className="scroll-mt-20 bg-[#EEF1F7] px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
-        <div className="mx-auto mb-14 max-w-xl text-center">
+        <div className="mx-auto mb-10 max-w-xl text-center sm:mb-14">
           <div className="mb-3.5 text-sm font-bold tracking-[1.5px] text-[#1E3A8A] uppercase">
             Board of Directors
           </div>
           <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(28px,3.6vw,44px)] leading-[1.1] font-bold">
-            Leading AB Narrow Fabrics
+            A message from our founders
           </h2>
         </div>
 
@@ -121,9 +127,20 @@ export default function About() {
               <h3 className="mb-1.5 font-[family-name:var(--font-heading)] text-2xl font-bold">
                 {person.name}
               </h3>
-              <p className="mb-5 text-base font-medium text-[#1E3A8A]">{person.role}</p>
-              <p className="mb-3.5 text-[15px] text-gray-600">{person.qualification}</p>
-              <p className="text-[15px] leading-relaxed text-gray-500">{person.description}</p>
+              <p className="mb-6 text-base font-medium text-[#1E3A8A]">{person.role}</p>
+              <blockquote className="relative border-t border-gray-200 pt-8 text-left">
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-3 font-[family-name:var(--font-heading)] text-5xl leading-none text-[#1E3A8A]"
+                >
+                  &ldquo;
+                </span>
+                {person.message.map((para) => (
+                  <p key={para} className="mb-4 text-[15px] leading-relaxed text-gray-600 last:mb-0">
+                    {para}
+                  </p>
+                ))}
+              </blockquote>
             </div>
           ))}
         </div>

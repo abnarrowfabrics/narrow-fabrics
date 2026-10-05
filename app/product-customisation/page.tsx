@@ -24,7 +24,7 @@ export default function ProductCustomisation() {
       />
 
       <section className="mx-auto max-w-6xl scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl sm:text-center">
           <p className="text-[clamp(18px,2vw,22px)] leading-[1.7] text-gray-700">
             AB Narrow Fabrics has gained significant industry and application knowledge over 10+
             years of narrow fabric weaving. This knowledge, combined with our range of

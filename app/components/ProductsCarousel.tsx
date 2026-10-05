@@ -54,6 +54,8 @@ type Product = (typeof baseProducts)[number] & {
 
 export default function ProductsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Auto-advance holds off while the user is touching/swiping the carousel
+  const pausedUntil = useRef(0);
   const [active, setActive] = useState<Product | null>(null);
   const [width, setWidth] = useState<string>("");
   const [zoomed, setZoomed] = useState(false);
@@ -76,6 +78,7 @@ export default function ProductsCarousel() {
     }, 100);
 
     const interval = setInterval(() => {
+      if (Date.now() < pausedUntil.current) return;
       const card = container.querySelector<HTMLElement>(".carousel-card");
       if (!card) return;
       const step = card.offsetWidth + parseFloat(getComputedStyle(container).columnGap);
@@ -110,6 +113,7 @@ export default function ProductsCarousel() {
       {/* Carousel Container */}
       <div 
         ref={scrollRef}
+        onPointerDown={() => (pausedUntil.current = Date.now() + 8000)}
         className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 px-[50vw] pb-12 hide-scrollbar" 
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
@@ -178,17 +182,17 @@ export default function ProductsCarousel() {
       {active && (
         <div
           onClick={() => setActive(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-5"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 sm:items-center sm:p-5"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-lg rounded-xl bg-white p-8 shadow-2xl"
+            className="relative max-h-[90svh] w-full max-w-lg overflow-y-auto rounded-t-2xl bg-white p-6 shadow-2xl sm:rounded-xl sm:p-8"
           >
             <button
               type="button"
               onClick={() => setActive(null)}
               aria-label="Close"
-              className="absolute right-4 top-4 text-2xl leading-none text-gray-400 hover:text-gray-700"
+              className="absolute right-2 top-2 flex h-11 w-11 items-center justify-center text-2xl leading-none text-gray-400 hover:text-gray-700"
             >
               ×
             </button>
@@ -235,7 +239,7 @@ export default function ProductsCarousel() {
                   type="button"
                   onClick={() => setZoomed(false)}
                   aria-label="Close full screen image"
-                  className="absolute right-5 top-5 text-4xl leading-none text-white/80 hover:text-white"
+                  className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center text-4xl leading-none text-white/80 hover:text-white"
                 >
                   ×
                 </button>
