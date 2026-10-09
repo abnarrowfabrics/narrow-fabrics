@@ -26,12 +26,14 @@ export default function HeroMedia() {
           autoPlay
           muted
           playsInline
-          onEnded={() => setActive(1)}
+          onEnded={() =>
+            window.matchMedia("(min-width: 640px)").matches ? setActive(1) : videoRef.current?.play()
+          }
         />
         <img
           src="/hero-image.jpeg"
           alt=""
-          className="h-full w-1/2 object-cover"
+          className="hidden h-full w-1/2 object-cover sm:block"
         />
       </div>
     </div>
