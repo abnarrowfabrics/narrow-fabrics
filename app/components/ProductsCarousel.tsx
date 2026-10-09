@@ -147,7 +147,7 @@ export default function ProductsCarousel() {
               {product.image ? (
                 <Image
                   src={product.image}
-                  alt=""
+                  alt={`${product.name} product photo`}
                   width={800}
                   height={600}
                   sizes="(min-width: 640px) 380px, 80vw"

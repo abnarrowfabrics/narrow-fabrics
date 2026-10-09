@@ -54,6 +54,7 @@ export default function About() {
         title="Built on the loom, driven by craftsmanship"
         subtitle="From a small weaving unit to a full-scale narrow fabric manufacturer serving clients across India."
         image="/38mm-belt.jpeg"
+        imageAlt="Large roll of 38 mm white belt webbing in the factory"
       />
 
       <section className="mx-auto grid max-w-6xl scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] items-center gap-10 md:gap-16 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">

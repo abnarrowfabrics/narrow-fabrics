@@ -9,7 +9,7 @@ export default function CtaBanner({
 }) {
   return (
     <section className="relative overflow-hidden px-5 py-[clamp(80px,12vw,150px)] sm:px-10">
-      <Image src="/lanyards.png" alt="" fill sizes="100vw" className="object-cover" />
+      <Image src="/lanyards.png" alt="Rolls of white lanyard webbing" fill sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0B1433]/95 via-[#1E3A8A]/85 to-[#1E3A8A]/70" />
       <div className="relative mx-auto max-w-6xl">
         <h2 className="mb-5 max-w-2xl font-[family-name:var(--font-heading)] text-[clamp(32px,4.6vw,58px)] leading-[1.05] font-extrabold text-balance text-white">

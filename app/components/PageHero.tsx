@@ -4,16 +4,18 @@ export default function PageHero({
   title,
   subtitle,
   image,
+  imageAlt = "",
 }: {
   title: string;
   subtitle: string;
   image?: string;
+  imageAlt?: string;
 }) {
   return (
     <section className="relative -mt-[69px] flex min-h-[min(56svh,580px)] items-end sm:min-h-[min(62vh,580px)] overflow-hidden bg-[#1E3A8A]">
       {image && (
         <div className="absolute inset-0 hidden sm:block">
-          <Image src={image} alt="" fill preload sizes="100vw" className="object-cover" />
+          <Image src={image} alt={imageAlt} fill preload sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C]/80 via-[#0B0B0C]/45 to-[#0B0B0C]/10" />
         </div>
       )}

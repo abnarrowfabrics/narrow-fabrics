@@ -32,7 +32,7 @@ export default function HeroMedia() {
         />
         <img
           src="/hero-image.jpeg"
-          alt=""
+          alt="AB Narrow Fabrics — manufacturer of premium lanyard rolls"
           className="hidden h-full w-1/2 object-cover sm:block"
         />
       </div>

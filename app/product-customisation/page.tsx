@@ -27,6 +27,7 @@ export default function ProductCustomisation() {
         title="Product Customisation"
         subtitle="Your width, material, color and attachment — lanyards and narrow fabrics made to your spec."
         image="/neck-lanyard.jpeg"
+        imageAlt="Custom printed neck lanyards in assorted colours"
       />
 
       <section className="mx-auto max-w-6xl scroll-mt-20 px-5 py-[clamp(70px,10vw,120px)] sm:px-10">
