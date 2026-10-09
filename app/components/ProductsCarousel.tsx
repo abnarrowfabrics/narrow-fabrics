@@ -129,13 +129,14 @@ export default function ProductsCarousel() {
                 setActive(product);
                 setWidth(product.tags[0]);
               }}
+              aria-label={`View ${product.name} details`}
               style={product.image ? undefined : placeholderStyle}
               className="flex aspect-[4/3] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg p-5 text-center font-mono text-xs text-gray-500 transition hover:brightness-95"
             >
               {product.image ? (
                 <Image
                   src={product.image}
-                  alt={product.name}
+                  alt=""
                   width={800}
                   height={600}
                   sizes="(min-width: 640px) 380px, 80vw"

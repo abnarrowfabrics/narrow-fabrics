@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HeroMedia from "./components/HeroMedia";
+import LazyVideo from "./components/LazyVideo";
 import IndiaMap from "./components/IndiaMap";
 import ProductsCarousel from "./components/ProductsCarousel";
 import HashScroll from "./components/HashScroll";
@@ -137,13 +138,9 @@ export default function Home() {
             sizes="(min-width: 1024px) 330px, 45vw"
             className="aspect-[3/4] h-auto w-full rounded-[10px] border border-black/8 object-cover"
           />
-          <video
+          <LazyVideo
             src="/25mm-lanyard-roll.mp4"
             className="aspect-[3/4] w-full rounded-[10px] border border-black/8 object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
           />
         </div>
       </section>
