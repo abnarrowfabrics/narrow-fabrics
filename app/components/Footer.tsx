@@ -4,16 +4,10 @@ import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./Header";
-import { WHATSAPP_NUMBER, WhatsAppIcon } from "../lib/whatsapp";
+import { WHATSAPP_NUMBER, WhatsAppIcon, phoneContacts, whatsappContacts } from "../lib/whatsapp";
 
 const iconButtonClass =
   "flex h-11 w-11 items-center justify-center rounded-lg bg-white/8 text-white hover:bg-[#1E3A8A]";
-
-const phoneContacts = [
-  { name: "Himanshu Mittal", number: "8527911209" },
-  { name: "Anoop Mishra", number: "8920312424" },
-  { name: "Dinesh Mittal", number: "9354876619" },
-];
 
 const socialLinks = [
   {
@@ -77,19 +71,23 @@ export default function Footer() {
                 <WhatsAppIcon />
               );
 
-              return social.label === "Call" ? (
+              const isCall = social.label === "Call";
+
+              return isCall || social.label === "WhatsApp" ? (
                 <details key={social.label} className="relative">
                   <summary
-                    aria-label="Call"
+                    aria-label={social.label}
                     className={`${iconButtonClass} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}
                   >
                     {icon}
                   </summary>
                   <div className="absolute bottom-full left-0 z-10 mb-2 w-max rounded-lg bg-[#17171A] p-1.5 ring-1 ring-white/12">
-                    {phoneContacts.map((c) => (
+                    {(isCall ? phoneContacts : whatsappContacts).map((c) => (
                       <a
                         key={c.number}
-                        href={`tel:+91${c.number}`}
+                        href={isCall ? `tel:+91${c.number}` : `https://wa.me/91${c.number}`}
+                        target={isCall ? undefined : "_blank"}
+                        rel={isCall ? undefined : "noopener noreferrer"}
                         className="block rounded px-3 py-2 text-sm whitespace-nowrap text-gray-300 hover:bg-white/8 hover:text-white"
                       >
                         {c.name} <span className="text-gray-500">+91 {c.number}</span>

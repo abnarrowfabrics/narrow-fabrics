@@ -1,5 +1,13 @@
 export const WHATSAPP_NUMBER = "918527911209";
 
+export const phoneContacts = [
+  { name: "Himanshu Mittal", number: "8527911209" },
+  { name: "Anoop Mishra", number: "8920312424" },
+  { name: "Dinesh Mittal", number: "9354876619" },
+];
+
+export const whatsappContacts = phoneContacts.slice(0, 2);
+
 export function WhatsAppIcon({ size = 16 }: { size?: number }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} fill="currentColor" viewBox="0 0 16 16">
