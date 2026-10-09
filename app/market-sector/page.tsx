@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { sharedOpenGraph } from "../lib/seo";
 import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,10 +7,15 @@ import PageHero from "../components/PageHero";
 import CtaBanner from "../components/CtaBanner";
 import { sectors } from "../data/sectors";
 
+const title = "Market Sector — AB Narrow Fabrics";
+const description =
+  "Lanyards and narrow fabrics made to spec for promotional, corporate, school, exhibition, government and industrial buyers — from AB Narrow Fabrics, Delhi.";
+
 export const metadata: Metadata = {
-  title: "Market Sector — AB Narrow Fabrics",
-  description:
-    "The sectors AB Narrow Fabrics supplies — medical, promotional, PPE, FIBC, cargo, queue management, rubber, luggage, garment and pet accessories.",
+  title,
+  description,
+  alternates: { canonical: "/market-sector" },
+  openGraph: { ...sharedOpenGraph, title, description, url: "/market-sector" },
 };
 
 const placeholderStyle = {

@@ -40,8 +40,9 @@ const baseProducts = [
   },
 ];
 
-// Duplicate the array many times to create a practically infinite scrolling list
-const infiniteProducts = Array(50).fill(baseProducts).flat();
+// A few copies of the products; recenter() jumps between identical copies so the loop never ends
+const COPIES = 5;
+const infiniteProducts = Array(COPIES).fill(baseProducts).flat();
 
 const placeholderStyle = {
   backgroundImage:
@@ -64,8 +65,7 @@ export default function ProductsCarousel() {
     const container = scrollRef.current;
     if (!container) return;
 
-    // Start near the middle of our massive array so we can scroll left infinitely
-    // 25 iterations in * 6 products * roughly 850px per card
+    // Start in the middle copy so there's room to scroll both ways
     setTimeout(() => {
       if (container.children.length > 0) {
         const midIndex = Math.floor(infiniteProducts.length / 2);
@@ -77,24 +77,35 @@ export default function ProductsCarousel() {
       }
     }, 100);
 
+    const getStep = () => {
+      const card = container.querySelector<HTMLElement>(".carousel-card");
+      return card ? card.offsetWidth + parseFloat(getComputedStyle(container).columnGap) : 0;
+    };
+
+    // Running out of cards on either side: jump by two whole product sets
+    // (looks identical) so the carousel never stops
+    const recenter = () => {
+      const set = getStep() * baseProducts.length;
+      if (!set) return;
+      if (container.scrollLeft < set) {
+        container.scrollTo({ left: container.scrollLeft + set * 2, behavior: "instant" });
+      } else if (container.scrollLeft > set * (COPIES - 2)) {
+        container.scrollTo({ left: container.scrollLeft - set * 2, behavior: "instant" });
+      }
+    };
+    container.addEventListener("scrollend", recenter);
+
     const interval = setInterval(() => {
       if (Date.now() < pausedUntil.current) return;
-      const card = container.querySelector<HTMLElement>(".carousel-card");
-      if (!card) return;
-      const step = card.offsetWidth + parseFloat(getComputedStyle(container).columnGap);
-      const set = step * baseProducts.length;
-
-      // Running out of cards on the left: jump forward by whole product sets
-      // (looks identical) so the carousel never stops
-      if (container.scrollLeft < set) {
-        container.scrollTo({ left: container.scrollLeft + set * 20, behavior: "instant" });
-      }
-
+      recenter();
       // User wants items to "come from the left" meaning we slide to the LEFT (previous item)
-      container.scrollBy({ left: -step, behavior: "smooth" });
+      container.scrollBy({ left: -getStep(), behavior: "smooth" });
     }, 4000 / 0.75);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      container.removeEventListener("scrollend", recenter);
+    };
   }, []);
 
   return (

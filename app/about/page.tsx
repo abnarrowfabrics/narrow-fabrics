@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { sharedOpenGraph } from "../lib/seo";
 import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,10 +7,15 @@ import PageHero from "../components/PageHero";
 import CtaBanner from "../components/CtaBanner";
 import { stats } from "../data/stats";
 
+const title = "About Us — AB Narrow Fabrics";
+const description =
+  "The story behind AB Narrow Fabrics — a narrow fabric weaving unit grown into a full-scale manufacturer of lanyards, ID card threads and school belts.";
+
 export const metadata: Metadata = {
-  title: "About Us — AB Narrow Fabrics",
-  description:
-    "The story behind AB Narrow Fabrics — a narrow fabric weaving unit grown into a full-scale manufacturer of lanyards, ID card threads and school belts.",
+  title,
+  description,
+  alternates: { canonical: "/about" },
+  openGraph: { ...sharedOpenGraph, title, description, url: "/about" },
 };
 
 const placeholderStyle = {

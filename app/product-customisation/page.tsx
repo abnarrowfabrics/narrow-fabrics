@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { sharedOpenGraph } from "../lib/seo";
 import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,10 +7,15 @@ import PlayableVideo from "../components/PlayableVideo";
 import PageHero from "../components/PageHero";
 import CtaBanner from "../components/CtaBanner";
 
+const title = "Product Customisation — AB Narrow Fabrics";
+const description =
+  "AB Narrow Fabrics offers customized and bespoke lanyard and narrow fabric solutions, developed in partnership with customers to meet exacting requirements.";
+
 export const metadata: Metadata = {
-  title: "Product Customisation — AB Narrow Fabrics",
-  description:
-    "AB Narrow Fabrics offers customized and bespoke lanyard and narrow fabric solutions, developed in partnership with customers to meet exacting requirements.",
+  title,
+  description,
+  alternates: { canonical: "/product-customisation" },
+  openGraph: { ...sharedOpenGraph, title, description, url: "/product-customisation" },
 };
 
 export default function ProductCustomisation() {

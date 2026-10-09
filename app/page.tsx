@@ -10,6 +10,11 @@ import HashScroll from "./components/HashScroll";
 import CtaBanner from "./components/CtaBanner";
 import { sectors } from "./data/sectors";
 import { stats } from "./data/stats";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const products = [
   {
