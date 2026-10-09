@@ -60,10 +60,10 @@ export default function Home() {
             <div className="mb-3.5 text-sm font-semibold tracking-[1.5px] text-white uppercase">
               Narrow Fabric Manufacturing — India
             </div>
-            <h1 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(38px,6vw,72px)] leading-[1.03] font-extrabold text-balance text-white">
+            <h1 className="mb-5 font-[family-name:var(--font-heading)] text-[34px] leading-[1.12] font-extrabold sm:text-[clamp(38px,6vw,72px)] sm:leading-[1.03] text-balance text-white">
               India&apos;s Fastest Growing Narrow Fabric Lanyard Manufacturer
             </h1>
-            <p className="mb-8 max-w-xl text-[clamp(16px,1.6vw,19px)] leading-relaxed text-white">
+            <p className="mb-9 max-w-xl text-[15px] leading-[1.7] text-white sm:mb-8 sm:text-[clamp(16px,1.6vw,19px)] sm:leading-relaxed">
               Precision-woven lanyards, belts and narrow fabric trims built for durability and
               finished to exacting quality standards — fully customizable in width, material,
               color and attachment for corporate, education and industrial buyers.
@@ -84,11 +84,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-4 pb-8 sm:gap-[18px] sm:pt-8">
+          <div className="flex flex-wrap gap-4 pt-6 pb-10 sm:gap-[18px] sm:pt-8 sm:pb-8">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className="min-w-[140px] flex-1 basis-[140px] rounded-lg border border-white/16 bg-white/8 p-3.5 backdrop-blur-sm sm:basis-[220px] sm:p-6"
+                className="min-w-[140px] flex-1 basis-[140px] rounded-lg border border-white/16 bg-white/8 p-4 backdrop-blur-sm sm:basis-[220px] sm:p-6"
                 style={{
                   animation: "fadeUp 0.8s ease both, floatSlow 5s ease-in-out infinite",
                   animationDelay: `${i * 0.12}s, 0s`,
@@ -97,7 +97,7 @@ export default function Home() {
                 <div className="mb-1.5 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white sm:text-4xl">
                   {stat.value}
                 </div>
-                <div className="text-[13px] font-medium text-[#C7CDD9] sm:text-sm">{stat.label}</div>
+                <div className="text-[13px] leading-snug font-medium text-[#C7CDD9] sm:text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
