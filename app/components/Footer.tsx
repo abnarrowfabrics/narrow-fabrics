@@ -192,6 +192,9 @@ export default function Footer() {
 
       <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-3 pt-6 text-[13px] text-gray-400">
         <div>© 2026 AB Narrow Fabrics. All rights reserved.</div>
+        <Link href="/privacy-policy" className="hover:text-white">
+          Privacy Policy
+        </Link>
         <div>Designed and manufactured in India.</div>
       </div>
     </footer>
